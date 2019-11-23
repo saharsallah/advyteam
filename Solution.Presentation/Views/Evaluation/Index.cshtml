@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title></title>
+</head>
+<body>
+    <a href="@Url.Action("Create", "Evaluation")">add new eval</a>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>ID</th>
+            <th>type</th>
+            <th>nom</th>
+            <th>description</th>
+            <th>objectif</th>
+            <th>date</th>
+        </tr>
+        @foreach(var p in ViewBag.result)
+        {
+            <tr>
+                <th>@p.id</th>
+                <th>@p.e_type</th>
+                <th>@p.nom</th>
+                <th>@p.objectif</th>
+                <th>@p.description</th>
+                <th>@p.dateEcheance</th>
+            </tr>
+        }
+
+    </table>
+
+</body>
+
+</html>
+
