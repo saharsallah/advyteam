@@ -9,6 +9,12 @@ namespace Solution.Data
     [Table("advyteam.contrat")]
     public partial class contrat
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public contrat()
+        {
+            employees = new HashSet<employee>();
+        }
+
         [Key]
         public int reference { get; set; }
 
@@ -20,7 +26,9 @@ namespace Solution.Data
 
         public float? salaire { get; set; }
 
-        [StringLength(255)]
-        public string typeContrat { get; set; }
+        public int? typeContrat { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<employee> employees { get; set; }
     }
 }

@@ -13,5 +13,7 @@ namespace Solution.Data
         public int id { get; set; }
 
         public int? timesheet_id { get; set; }
+
+        public virtual timesheet timesheet { get; set; }
     }
 }

@@ -19,10 +19,16 @@ namespace Solution.Data
         [StringLength(255)]
         public string comment { get; set; }
 
+        public int? timesheet_id { get; set; }
+
         public int? projet_id { get; set; }
 
         public int? evaluation_id { get; set; }
 
-        public int? timesheet_id { get; set; }
+        public virtual timesheet timesheet { get; set; }
+
+        public virtual projet projet { get; set; }
+
+        public virtual evaluation evaluation { get; set; }
     }
 }

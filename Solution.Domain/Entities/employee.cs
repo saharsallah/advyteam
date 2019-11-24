@@ -9,9 +9,16 @@ namespace Solution.Data
     [Table("advyteam.employee")]
     public partial class employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public employee()
+        {
+            projets = new HashSet<projet>();
+            timesheets = new HashSet<timesheet>();
+        }
+
         [Required]
         [StringLength(31)]
-        public string Type_emp { get; set; }
+        public string type_emp { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
@@ -25,33 +32,33 @@ namespace Solution.Data
         [StringLength(255)]
         public string email { get; set; }
 
-        [StringLength(255)]
-        public string etatcivil { get; set; }
-
-        [Column(TypeName = "bit")]
-        public bool? ferstlogin { get; set; }
-
-        [StringLength(16777215)]
-        public string image { get; set; }
+        public int? etatcivil { get; set; }
 
         [Column(TypeName = "bit")]
         public bool? isActif { get; set; }
 
+        [Required]
         [StringLength(255)]
         public string nom { get; set; }
 
         [StringLength(255)]
         public string password { get; set; }
 
+        [Required]
         [StringLength(255)]
         public string prenom { get; set; }
-
-        [StringLength(255)]
-        public string role { get; set; }
 
         [StringLength(255)]
         public string sexe { get; set; }
 
         public int? contrat_reference { get; set; }
+
+        public virtual contrat contrat { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<projet> projets { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<timesheet> timesheets { get; set; }
     }
 }
