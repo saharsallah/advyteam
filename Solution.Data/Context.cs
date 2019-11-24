@@ -60,12 +60,9 @@ namespace Solution.Data
                 .Property(e => e.nom)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<contrat>()
-                .Property(e => e.typeContrat)
-                .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
-                .Property(e => e.Type_emp)
+                .Property(e => e.type_emp)
                 .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
@@ -74,15 +71,8 @@ namespace Solution.Data
 
             modelBuilder.Entity<employee>()
                 .Property(e => e.email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<employee>()
-                .Property(e => e.etatcivil)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<employee>()
-                .Property(e => e.image)
-                .IsUnicode(false);
+                .IsUnicode(false);     
+         
 
             modelBuilder.Entity<employee>()
                 .Property(e => e.nom)
@@ -97,28 +87,14 @@ namespace Solution.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
-                .Property(e => e.role)
+                .Property(e => e.type_emp)
                 .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
                 .Property(e => e.sexe)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<evaluation>()
-                .Property(e => e.e_type)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<evaluation>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<evaluation>()
-                .Property(e => e.nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<evaluation>()
-                .Property(e => e.objectif)
-                .IsUnicode(false);
+        
 
             modelBuilder.Entity<evaluationfile>()
                 .Property(e => e.objec)

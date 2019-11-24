@@ -195,16 +195,20 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EvaluationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Evaluation.cs" />
+    <Compile Include="Models\commentaire.cs" />
+    <Compile Include="Models\employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\projet.cs" />
+    <Compile Include="Models\tache.cs" />
+    <Compile Include="Models\timesheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -353,6 +357,10 @@
     <Content Include="Content\fonts\lgd641.eot" />
     <Content Include="Content\fonts\lgd641.ttf" />
     <Content Include="Content\fonts\lgd641.woff" />
+    <Content Include="Content\include\footer.xhtml" />
+    <Content Include="Content\include\header.xhtml" />
+    <Content Include="Content\include\sidebar.xhtml" />
+    <Content Include="Content\include\template.xhtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -400,6 +408,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Evaluation\Index.cshtml" />
+    <Content Include="Views\Projet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

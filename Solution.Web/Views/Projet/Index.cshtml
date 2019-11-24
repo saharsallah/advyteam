@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste Des Projets</h2>
+
+<table class="table table-striped" cellpadding="2" cellspacing="2" border="1">
+    <tr>
+        <th>Id </th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Modifier</th>
+    </tr>
+    @foreach (var p in ViewBag.result)
+    {
+        <tr>
+            <td>@p.id</td>
+            <td>@p.titre</td>
+            <td>@p.description</td>
+            <td><button type="button" class="btn btn-primary">Modifier</button></td>
+        </tr>
+    }
+
+</table>
+<h2>Creation d'un projet</h2>
+<td><button type="button" class="btn btn-danger">clic ici</button></td>
