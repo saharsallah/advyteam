@@ -73,6 +73,7 @@
     <Compile Include="Entities\publication.cs" />
     <Compile Include="Entities\question.cs" />
     <Compile Include="Entities\quiz.cs" />
+    <Compile Include="Entities\reclamation.cs" />
     <Compile Include="Entities\reponse.cs" />
     <Compile Include="Entities\tache.cs" />
     <Compile Include="Entities\timesheet.cs" />
