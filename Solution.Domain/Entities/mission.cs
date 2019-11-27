@@ -6,7 +6,7 @@ namespace Solution.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.mission")]
+    [Table("mission")]
     public partial class mission
     {
         [Column("Mission")]

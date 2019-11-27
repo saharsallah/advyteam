@@ -1,5 +1,6 @@
 namespace Solution.Data
 {
+    using Solution.Domain.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -53,5 +54,7 @@ namespace Solution.Data
         public string sexe { get; set; }
 
         public int? contrat_reference { get; set; }
+        virtual public ICollection<reclamation> Reclamations { get; set; }
+
     }
 }

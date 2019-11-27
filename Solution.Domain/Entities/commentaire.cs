@@ -6,7 +6,7 @@ namespace Solution.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.commentaire")]
+    [Table("commentaire")]
     public partial class commentaire
     {
         [Required]

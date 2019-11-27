@@ -4,6 +4,8 @@ namespace Solution.Data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Solution.Domain.Entities;
+    using Solution.Data.Configuration;
 
     public partial class Context : DbContext
     {
@@ -37,9 +39,12 @@ namespace Solution.Data
         public virtual DbSet<tache> taches { get; set; }
         public virtual DbSet<timesheet> timesheets { get; set; }
         public virtual DbSet<typeformation> typeformations { get; set; }
+        public virtual DbSet<reclamation> reclamations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new ReclamationConfiguration());
+
             modelBuilder.Entity<commentaire>()
                 .Property(e => e.type_com)
                 .IsUnicode(false);

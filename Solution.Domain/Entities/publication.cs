@@ -6,7 +6,7 @@ namespace Solution.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.publication")]
+    [Table("publication")]
     public partial class publication
     {
         public long id { get; set; }

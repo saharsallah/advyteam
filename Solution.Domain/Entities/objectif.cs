@@ -6,7 +6,7 @@ namespace Solution.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.objectifs")]
+    [Table("objectifs")]
     public partial class objectif
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

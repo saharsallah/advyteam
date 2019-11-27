@@ -6,7 +6,7 @@ namespace Solution.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.timesheet")]
+    [Table("timesheet")]
     public partial class timesheet
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
