@@ -56,6 +56,7 @@
     <Compile Include="Entities\commentaire.cs" />
     <Compile Include="Entities\commentairepub.cs" />
     <Compile Include="Entities\competence.cs" />
+    <Compile Include="Entities\Conge.cs" />
     <Compile Include="Entities\contrat.cs" />
     <Compile Include="Entities\cour.cs" />
     <Compile Include="Entities\coursformateur.cs" />

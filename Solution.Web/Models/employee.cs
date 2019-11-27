@@ -59,5 +59,6 @@ namespace Solution.Data
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<timesheet> timesheets { get; set; }
+        public virtual ICollection<Conge> Conges { get; set; }
     }
 }

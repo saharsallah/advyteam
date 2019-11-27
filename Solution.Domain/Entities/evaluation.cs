@@ -9,37 +9,16 @@ namespace Solution.Data
     [Table("advyteam.evaluation")]
     public partial class evaluation
     {
-        [Required]
-        [StringLength(31)]
-        public string e_type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public evaluation()
+        {
+            commentaires = new HashSet<commentaire>();
+        }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
-        [StringLength(255)]
-        public string description { get; set; }
-
-        [Column(TypeName = "bit")]
-        public bool? etat { get; set; }
-
-        [StringLength(255)]
-        public string nom { get; set; }
-
-        public int? type { get; set; }
-
-        public DateTime? dateEcheance { get; set; }
-
-        [StringLength(255)]
-        public string objectif { get; set; }
-
-        public DateTime? rendezVous { get; set; }
-
-        public DateTime? dateDeb { get; set; }
-
-        public DateTime? dateFin { get; set; }
-
-        public int? emp_id { get; set; }
-
-        public int? file_id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<commentaire> commentaires { get; set; }
     }
 }

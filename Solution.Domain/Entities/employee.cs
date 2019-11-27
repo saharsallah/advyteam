@@ -12,6 +12,7 @@ namespace Solution.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public employee()
         {
+            conges = new HashSet<conge>();
             projets = new HashSet<projet>();
             timesheets = new HashSet<timesheet>();
         }
@@ -52,6 +53,9 @@ namespace Solution.Data
         public string sexe { get; set; }
 
         public int? contrat_reference { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<conge> conges { get; set; }
 
         public virtual contrat contrat { get; set; }
 

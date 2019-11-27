@@ -12,31 +12,14 @@ namespace Solution.Data
         {
         }
 
-        public virtual DbSet<categorie> categories { get; set; }
         public virtual DbSet<commentaire> commentaires { get; set; }
-        public virtual DbSet<commentairepub> commentairepubs { get; set; }
-        public virtual DbSet<competence> competences { get; set; }
+        public virtual DbSet<conge> conges { get; set; }
         public virtual DbSet<contrat> contrats { get; set; }
-        public virtual DbSet<cour> cours { get; set; }
-        public virtual DbSet<coursformateur> coursformateurs { get; set; }
-        public virtual DbSet<demandemission> demandemissions { get; set; }
-        public virtual DbSet<empcomp> empcomps { get; set; }
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<evaluation> evaluations { get; set; }
-        public virtual DbSet<evaluationfile> evaluationfiles { get; set; }
-        public virtual DbSet<examan> examen { get; set; }
-        public virtual DbSet<formation> formations { get; set; }
-        public virtual DbSet<mission> missions { get; set; }
-        public virtual DbSet<objectif> objectifs { get; set; }
-        public virtual DbSet<participant> participants { get; set; }
         public virtual DbSet<projet> projets { get; set; }
-        public virtual DbSet<publication> publications { get; set; }
-        public virtual DbSet<question> questions { get; set; }
-        public virtual DbSet<quiz> quizs { get; set; }
-        public virtual DbSet<reponse> reponses { get; set; }
         public virtual DbSet<tache> taches { get; set; }
         public virtual DbSet<timesheet> timesheets { get; set; }
-        public virtual DbSet<typeformation> typeformations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,18 +31,10 @@ namespace Solution.Data
                 .Property(e => e.comment)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<commentairepub>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<competence>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<competence>()
-                .Property(e => e.nom)
-                .IsUnicode(false);
-
+            modelBuilder.Entity<contrat>()
+                .HasMany(e => e.employees)
+                .WithOptional(e => e.contrat)
+                .HasForeignKey(e => e.contrat_reference);
 
             modelBuilder.Entity<employee>()
                 .Property(e => e.type_emp)
@@ -71,8 +46,7 @@ namespace Solution.Data
 
             modelBuilder.Entity<employee>()
                 .Property(e => e.email)
-                .IsUnicode(false);     
-         
+                .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
                 .Property(e => e.nom)
@@ -87,102 +61,29 @@ namespace Solution.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
-                .Property(e => e.type_emp)
+                .Property(e => e.sexe)
                 .IsUnicode(false);
 
             modelBuilder.Entity<employee>()
-                .Property(e => e.sexe)
-                .IsUnicode(false);
+                .HasMany(e => e.conges)
+                .WithOptional(e => e.employee)
+                .HasForeignKey(e => e.employe_id);
 
-        
+            modelBuilder.Entity<employee>()
+                .HasMany(e => e.projets)
+                .WithOptional(e => e.employee)
+                .HasForeignKey(e => e.createdBy_id);
 
-            modelBuilder.Entity<evaluationfile>()
-                .Property(e => e.objec)
-                .IsUnicode(false);
+            modelBuilder.Entity<employee>()
+                .HasMany(e => e.timesheets)
+                .WithRequired(e => e.employee)
+                .HasForeignKey(e => e.idDeveloppeur)
+                .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<evaluationfile>()
-                .Property(e => e.result)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<examan>()
-                .Property(e => e.catExam)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<examan>()
-                .Property(e => e.formation)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<examan>()
-                .Property(e => e.nomExamen)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<examan>()
-                .Property(e => e.participant)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<examan>()
-                .Property(e => e.typeExam)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<formation>()
-                .Property(e => e.nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<formation>()
-                .Property(e => e.refnamepar)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<formation>()
-                .Property(e => e.type)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<mission>()
-                .Property(e => e.Mission1)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<mission>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<mission>()
-                .Property(e => e.libelle)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<objectif>()
-                .Property(e => e.obj1)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<objectif>()
-                .Property(e => e.obj2)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<objectif>()
-                .Property(e => e.obj3)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<participant>()
-                .Property(e => e.Refname)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<participant>()
-                .Property(e => e.adresse)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<participant>()
-                .Property(e => e.email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<participant>()
-                .Property(e => e.nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<participant>()
-                .Property(e => e.sexe)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<participant>()
-                .Property(e => e.type)
-                .IsUnicode(false);
+            modelBuilder.Entity<evaluation>()
+                .HasMany(e => e.commentaires)
+                .WithOptional(e => e.evaluation)
+                .HasForeignKey(e => e.evaluation_id);
 
             modelBuilder.Entity<projet>()
                 .Property(e => e.description)
@@ -192,9 +93,16 @@ namespace Solution.Data
                 .Property(e => e.titre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<publication>()
-                .Property(e => e.description)
-                .IsUnicode(false);
+            modelBuilder.Entity<projet>()
+                .HasMany(e => e.commentaires)
+                .WithOptional(e => e.projet)
+                .HasForeignKey(e => e.projet_id);
+
+            modelBuilder.Entity<projet>()
+                .HasMany(e => e.timesheets)
+                .WithRequired(e => e.projet)
+                .HasForeignKey(e => e.idProjet)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<timesheet>()
                 .Property(e => e.description)
@@ -208,9 +116,15 @@ namespace Solution.Data
                 .Property(e => e.titre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<typeformation>()
-                .Property(e => e.type)
-                .IsUnicode(false);
+            modelBuilder.Entity<timesheet>()
+                .HasMany(e => e.commentaires)
+                .WithOptional(e => e.timesheet)
+                .HasForeignKey(e => e.timesheet_id);
+
+            modelBuilder.Entity<timesheet>()
+                .HasMany(e => e.taches)
+                .WithOptional(e => e.timesheet)
+                .HasForeignKey(e => e.timesheet_id);
         }
     }
 }
