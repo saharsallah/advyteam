@@ -1,0 +1,101 @@
+﻿
+
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <table>
+
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date Naisance</th>
+            <th>Adresse</th>
+            <th>Email Employee</th>
+            <th>Type</th>
+            <th>Etat Employee</th>
+            <th> Etat Civil</th>
+            <th> Sexe</th>
+            <th>Image</th>
+            <th>Ferst Login</th>
+         
+        </tr>
+
+        @foreach (var p in ViewBag.result)
+        {
+
+            <tr>
+
+                <td>@p.nom</td>
+                <td>@p.prenom</td>
+                <th>@p.datenaissance</th>
+                <th>@p.adresse</th>
+                <th>@p.email</th>
+                <th>@p.Type_emp</th>
+
+
+                @if (p.isActif == true)
+                {
+                    <th>Actif</th>
+
+                }
+                else
+                {
+                    <th>Is Not Actif</th>
+
+                }
+
+                <th>@p.etatcivil</th>
+
+                @if (p.sexe == "H")
+                {
+                    <th>Homme</th>
+
+                }
+                else
+                {
+                    <th>Femme</th>
+
+                }
+
+                <th>
+                    <img src="data:image/jpeg;base64,@p.image" width="130" height="130"></img>
+                </th>
+
+                @if (p.ferstlogin == true)
+                {
+                    <th>Password is change</th>
+                }
+                else
+                {
+                    <th>Password is not change</th>
+
+                }
+
+               
+            </tr>
+
+        }
+     
+    </table>
+</body>
+</html>
+
+
