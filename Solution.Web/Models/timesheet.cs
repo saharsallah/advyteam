@@ -1,4 +1,4 @@
-namespace Solution.Data
+namespace Solution.Web.Models
 {
     using System;
     using System.Collections.Generic;

@@ -1,6 +1,7 @@
 ﻿using Solution.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,7 @@ namespace Solution.Web.Models
 {
     public class CongeVM
     {
-
+        [Key]
         public int id { get; set; }
 
         public DateTime? dateDebut { get; set; }
@@ -21,6 +22,5 @@ namespace Solution.Web.Models
 
         public int? employe_id { get; set; }
 
-        public virtual employee employee { get; set; }
     }
 }

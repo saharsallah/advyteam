@@ -29,5 +29,7 @@ namespace Solution.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Solution.Domain.Entities.projet> projets { get; set; }
     }
 }

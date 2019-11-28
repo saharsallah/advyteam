@@ -413,6 +413,7 @@
     <Content Include="Views\Projet\Index.cshtml" />
     <Content Include="Views\Conge\Index.cshtml" />
     <Content Include="Views\Conge\Create.cshtml" />
+    <Content Include="Views\Projet\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

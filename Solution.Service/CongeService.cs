@@ -21,44 +21,5 @@ namespace Solution.Service
 
         }
 
-        public void Add(conge entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(conge entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(System.Linq.Expressions.Expression<Func<conge, bool>> where)
-        {
-            throw new NotImplementedException();
-        }
-
-        public conge Get(System.Linq.Expressions.Expression<Func<conge, bool>> where)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<conge> GetMany(System.Linq.Expressions.Expression<Func<conge, bool>> where = null, System.Linq.Expressions.Expression<Func<conge, bool>> orderBy = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(conge entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        conge IService<conge>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        conge IService<conge>.GetById(string id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

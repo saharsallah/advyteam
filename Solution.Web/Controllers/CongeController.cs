@@ -49,9 +49,8 @@ namespace Solution.Web.Controllers
                 typeConge = congeVM.typeConge,
                 valider = congeVM.valider,
                 employe_id = congeVM.employe_id
-
             };
-
+            
             service.Add(conge);
             service.Commit();
             return View();

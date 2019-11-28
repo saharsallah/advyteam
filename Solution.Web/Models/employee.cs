@@ -1,5 +1,6 @@
-namespace Solution.Data
+namespace Solution.Web.Models
 {
+    using Solution.Domain.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -59,6 +60,6 @@ namespace Solution.Data
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<timesheet> timesheets { get; set; }
-        public virtual ICollection<Conge> Conges { get; set; }
+        public virtual ICollection<conge> Conges { get; set; }
     }
 }

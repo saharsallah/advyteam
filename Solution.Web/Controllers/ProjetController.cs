@@ -1,11 +1,14 @@
 ﻿using Solution.Data;
+using Solution.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using Context = Solution.Data.Context;
 
 namespace Solution.Web.Controllers
@@ -42,9 +45,23 @@ namespace Solution.Web.Controllers
         public ActionResult Create(projet p)
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:8080");
-            client.PostAsJsonAsync<projet>("Piadvy-web/api/new", p).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
-            Console.WriteLine(p);
+
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "http://localhost:8080/Piadvy-web/api/new");
+            string json = new JavaScriptSerializer().Serialize(new
+            {
+                description = p.description,
+                titre = p.titre,
+                createdBy = p.createdBy_id
+            }
+            );
+
+            requestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+
+
+            //client.BaseAddress = new Uri("http://localhost:8080");
+            //client.PostAsJsonAsync<projet>("Piadvy-web/api/new", p).ContinueWith((postTask) => postTask.Result.EnsureSuccessStatusCode());
+            //Console.WriteLine(p);
             return RedirectToAction("Index");
         }
     }
