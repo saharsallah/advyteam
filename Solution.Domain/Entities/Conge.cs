@@ -9,7 +9,7 @@ namespace Solution.Domain.Entities
     [Table("advyteam.conge")]
     public partial class conge
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         [Column(TypeName = "date")]

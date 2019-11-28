@@ -75,7 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
     <Compile Include="Infrastructures\DataBaseFactory.cs" />
     <Compile Include="Infrastructures\Disposable.cs" />
     <Compile Include="Infrastructures\IDataBaseFactory.cs" />

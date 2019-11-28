@@ -12,7 +12,7 @@ namespace Solution.Web.Controllers
 {
     public class CongeController : Controller
     {
-        ICongeService service = null;
+        ICongeService service;
 
         public CongeController()
         {
@@ -40,9 +40,9 @@ namespace Solution.Web.Controllers
 
         // POST: Conge/Create
         [HttpPost]
-        public ActionResult Create(CongeVM congeVM)
+        public ActionResult Create(conge conge)
         {
-            conge conge = new conge
+           /* conge conge = new conge
             {
                 dateDebut = congeVM.dateDebut,
                 dateFin = congeVM.dateFin,
@@ -50,7 +50,7 @@ namespace Solution.Web.Controllers
                 valider = congeVM.valider,
                 employe_id = congeVM.employe_id
             };
-            
+*/            
             service.Add(conge);
             service.Commit();
             return View();

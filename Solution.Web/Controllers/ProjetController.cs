@@ -51,7 +51,9 @@ namespace Solution.Web.Controllers
             {
                 description = p.description,
                 titre = p.titre,
-                createdBy = p.createdBy_id
+                createdBy = 2,
+                dateDebut = p.dateDebut,
+                deadline = p.deadline
             }
             );
 
