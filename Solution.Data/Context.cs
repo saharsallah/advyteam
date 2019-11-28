@@ -4,6 +4,7 @@ namespace Solution.Data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Solution.Domain.Entities;
 
     public partial class Context : DbContext
     {
