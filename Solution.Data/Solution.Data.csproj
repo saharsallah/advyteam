@@ -91,6 +91,14 @@
     <Compile Include="Migrations\201911272014288_reclamationajout.Designer.cs">
       <DependentUpon>201911272014288_reclamationajout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911272148174_hh.cs" />
+    <Compile Include="Migrations\201911272148174_hh.Designer.cs">
+      <DependentUpon>201911272148174_hh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911281339455_new.cs" />
+    <Compile Include="Migrations\201911281339455_new.Designer.cs">
+      <DependentUpon>201911281339455_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\myMigrationSQLGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +119,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911272014288_reclamationajout.resx">
       <DependentUpon>201911272014288_reclamationajout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911272148174_hh.resx">
+      <DependentUpon>201911272148174_hh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911281339455_new.resx">
+      <DependentUpon>201911281339455_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

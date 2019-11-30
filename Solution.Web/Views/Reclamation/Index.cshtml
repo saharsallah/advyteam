@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Solution.Domain.Entities.reclamation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+   
+
+    @foreach (var item in Model)
+    {
+        <div class="add-list-container">
+            <div class="listing-item" style="width: 30%;">
+                <article class="geodir-category-listing fl-wrap">
+                    <div class="geodir-category-img">
+                        <img src="data:image/jpeg;base64,@Session["emp3"].ToString() " width="100" height="100" />
+                    </div>
+                    <div class="box-widget-content">
+                        <p>Objet de reclamation : @Html.DisplayFor(modelItem => item.Objet)</p>
+                        <p>Description de reclamation : @Html.DisplayFor(modelItem => item.Description) </p>
+                        <p>Date reclamation :  @Html.DisplayFor(modelItem => item.DateReclamation) </p>
+                        @if (item.DateTraitement == null)
+                        {
+                            <p>
+                             La reclamation  Encore non traité
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                traité le      @Html.DisplayFor(modelItem => item.DateTraitement)
+                            </p>
+                        }
+
+                    <p>Nom de reclamter : @Html.DisplayFor(modelItem => item.employee.nom)</p>
+                    
+                        <div class="geodir-category-options fl-wrap">
+                            <div class="booking-details">
+                                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    }
+</table>
+
+

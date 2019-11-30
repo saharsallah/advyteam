@@ -3,8 +3,11 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
+@using Solution.Web.Models
 
-
+@{
+    EmployeeModel e = Session["EmployeeConnecte"] as EmployeeModel;
+}
 
 
 
@@ -23,7 +26,6 @@
     <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/style.css") />
     <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/color.css") />
     <!--=============== favicons ===============-->
-    <link rel="shortcut icon" href==@Url.Content("/Content/images/favicon.ico") />
 </h:head>
 
 <body>
@@ -41,7 +43,9 @@
         <header class="main-header dark-header fs-header sticky">
             <div class="header-inner">
                 <div class="logo-holder">
-                    <a href="index.html"><img src=@Url.Content("/Content/images/logo.png") alt="" /></a>
+                    <a href="index.html">
+
+                    </a>
                 </div>
                 <div class="header-search vis-header-search">
                     <div class="header-search-input-item">
@@ -62,8 +66,11 @@
                 <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
                 <div class="header-user-menu">
                     <div class="header-user-name">
-                        <span><img src=@Url.Content("/Content/images/avatar/4.jpg") alt="" /></span>
-                        Hello , Alisa
+                        <span>
+                            <img src="data:image/jpeg;base64,@Session["emp3"].ToString() " width="130" height="130" /></img>
+                            alt="" />
+                        </span>
+                        Hello ,  @Session["emp"].ToString()
                     </div>
                     <ul>
                         <li><a href="dashboard-myprofile.html"> Edit profile</a></li>
@@ -123,10 +130,10 @@
 
                             <div class="profile-edit-page-header">
 
-                                <h2>Evaluation</h2>
+                                <h2>G.Employee</h2>
 
                                 <div class="breadcrumbs">
-                                    <a href="#">Home</a><a href="#">Dasboard</a>
+
                                 </div>
                             </div>
 
@@ -141,7 +148,7 @@
 
                                             <div class="user-profile-menu">
 
-                                                <h3>Gestin des evaluations</h3>
+                                                <h3>Gestion des Employee</h3>
 
                                                 <ul>
 
@@ -150,53 +157,33 @@
                                                             <i class="" /> Ajouter Evaluation
                                                         </a>
                                                     </li>
+                                                    @if (@e.Type_emp=="devloppeur")
+                                                    {
+                                                        <p>sdsd</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <ul>
 
-                                                    <li>
-                                                        <a href="addF.xhtml">
-                                                            <i class="" /> Consulter Liste Evaluations
-                                                        </a>
-                                                    </li>
+                                                            <li>
+                                                                <a href="addJSF.xhtml">
+                                                                    <i class="" /> Ajouter Evaluation
+                                                                </a>
+                                                            </li>
 
-                                                    <li>
-                                                        <a href="statistique.xhtml">
-                                                            <i class="" />Les statistique
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- user-profile-menu end-->
-                                            <!-- user-profile-menu-->
 
-                                            <div class="user-profile-menu">
 
-                                                <h3>Gestion des Fiches</h3>
-
-                                                <ul>
-
-                                                    <li>
-                                                        <a href="dashboard-myprofile.html">
-                                                            <i class="" /> Ajouter une note
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="dashboard-messages.html">
-                                                            <i class="" /> Consulter une Fiche <span>3</span>
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="dashboard-password.html">
-                                                            <i class="" />Change Password
-                                                        </a>
-                                                    </li>
+                                                        </ul>
+                                                    }
                                                 </ul>
                                             </div>
                                             <!-- user-profile-menu end-->
                                             <!-- user-profile-menu-->
                                             <!-- user-profile-menu end-->
-                                           
-                                            <input type="submit" onclick="location.href='@Url.Action("LogOff","Employe")'" class="log-out-btn" value="LogOut" > 
+                                            <!-- user-profile-menu-->
+                                            <!-- user-profile-menu end-->
+
+                                            <input type="submit" onclick="location.href='@Url.Action("LogOff","Employe")'" class="log-out-btn" value="LogOut" />
 
                                         </div>
                                     </div>
@@ -215,10 +202,10 @@
                                         <h:form class="custom-form">
 
 
-                                            <div class="col-md-9">
+                                            <div class="col-md-12">
 
                                                 <div class="dashboard-list-box fl-wrap">
-                                                    
+
                                                     <!-- dashboard-list end-->
 
                                                     @RenderBody();
@@ -243,38 +230,37 @@
 
                 <div class="limit-box fl-wrap" />
                 <!--section -->
-                
                 <!-- section end -->
             </div>
         </div>
         <!-- wrapper end -->
         <!--footer -->
-       
-            <div class="sub-footer fl-wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="about-widget">
-                                <img src="../images/logo.png" alt="" />
-                            </div>
+
+        <div class="sub-footer fl-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="about-widget">
+                            <img src="../images/logo.png" alt="" />
                         </div>
-                        <div class="col-md-4">
-                            <div class="copyright"> &#169; Speech 2017 .  All rights reserved.</div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="footer-social">
-                                <ul>
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-chrome"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-vk"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="copyright"> &#169; Speech 2017 .  All rights reserved.</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-chrome"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-vk"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </footer>
         <!--footer end  -->
 

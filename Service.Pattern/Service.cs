@@ -77,7 +77,7 @@ namespace Service.Pattern
        
        
       public void Commit()
-        {/*
+        {
             try
             {
                 utwk.commit();
@@ -86,7 +86,7 @@ namespace Service.Pattern
             {
 
                 throw;
-            } */
+            } 
         }
        
         

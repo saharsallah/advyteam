@@ -15,6 +15,7 @@ namespace Solution.Data
         public string Type_emp { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int id { get; set; }
 
         [StringLength(255)]

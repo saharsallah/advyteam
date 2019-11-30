@@ -1,4 +1,5 @@
 ﻿using Solution.Data;
+using Solution.Service;
 using Solution.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,13 @@ namespace Solution.Web.Controllers
 {
     public class EmployeController : Controller
     {
+
+        IEmployeeService serviceemp;
+        public EmployeController()
+        {
+            serviceemp = new EmployeeService();
+
+        }
         employee emp;
 
         // GET: Employe
@@ -52,20 +60,23 @@ namespace Solution.Web.Controllers
             Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage responce = Client.GetAsync("Piadvy-web/employe/login?login=" + loginModel.email + "&pass=" + loginModel.password).Result;
             emp = responce.Content.ReadAsAsync<employee>().Result;
+            employee em;
+            em = serviceemp.GetById(emp.id);
 
             EmployeeModel E = new EmployeeModel
             {
-                adresse = emp.adresse,
-                id = emp.id,
-                nom = emp.nom,
-                image = emp.image,
-                isActif = emp.isActif,
-                datenaissance = emp.datenaissance,
-                etatcivil = emp.etatcivil
+                adresse = em.adresse,
+                id = em.id,
+                nom = em.nom,
+                image = em.image,
+                isActif = em.isActif,
+                datenaissance = em.datenaissance,
+                etatcivil = em.etatcivil,
+                Type_emp=em.Type_emp
             };
-            employee em;
-            em = serviceemp.GetById(E.id);
-            Session["emp5"] = em.Type_emp;
+            
+
+            Session["emp"] = em.Type_emp;
             Session["EmployeeConnecte"] = E;
             if (em.Type_emp.Equals("devloppeur"))
             {
@@ -74,7 +85,7 @@ namespace Solution.Web.Controllers
                 Session["emp3"] = emp.image;
                 Session["emp4"] = emp.id;
                 Session["emp5"] = emp.email;
-                return Redirect("~/Reclamation/Create");
+                return Redirect("~/Home/About");
             }
             else
             {
