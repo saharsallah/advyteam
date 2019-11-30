@@ -193,7 +193,7 @@ namespace Solution.Web.Controllers
             }
            
             ViewBag.res2 = M;
-            return View(lstRecl);
+            return View(lstRecl) ;
         }
 
     }
