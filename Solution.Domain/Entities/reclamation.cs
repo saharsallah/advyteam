@@ -22,5 +22,7 @@ namespace Solution.Domain.Entities
 
         [ForeignKey("EmployeeId")]
         public virtual employee employee  { get; set; }
+
+       
     }
 }

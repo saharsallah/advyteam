@@ -92,7 +92,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="#">Gestion Employe</a>
+                                <a href="#">Gestion Employe</a> 
                             </li>
                             <li>
                                 <a href="listerEval.xhtml" class="act-link">Evaluation</a>
@@ -130,7 +130,11 @@
 
                             <div class="profile-edit-page-header">
 
-                                <h2>G.Employee</h2>
+                                <h2>
+                                  
+                                    G.Employee
+
+                                </h2>
 
                                 <div class="breadcrumbs">
 
@@ -154,7 +158,7 @@
 
                                                     <li>
                                                         <a href="addJSF.xhtml">
-                                                            <i class="" /> Ajouter Evaluation
+                                                            <i class="" /> Ajouter Evaluation<span>@Session["notif"]</span>
                                                         </a>
                                                     </li>
                                                     @if (@e.Type_emp=="devloppeur")

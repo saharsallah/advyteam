@@ -10,5 +10,7 @@ namespace Solution.Service
 {
     public interface IReclamationService : IService<reclamation>
     {
+          int Getreclamationnontraite();
+          IEnumerable<reclamation> GetMesrec(int idemp);
     }
 }

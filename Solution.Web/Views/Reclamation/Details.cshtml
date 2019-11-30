@@ -3,141 +3,120 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>reclamation</h4>
-    <hr />
-    <dl class="dl-horizontal">
-
-
-
-
-        
-
-
-
-        
-
-
-    
-</div>
-@if (Model.Etat == true)
-{
-    <p>La demende est traite</p>
-}
-else
-{
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-    </p>
-}
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
-<div class="dashboard-list">
-    <div class="dashboard-message">
-        <span class="new-dashboard-item">New</span>
-        <div class="dashboard-message-avatar">
-            <img src="data:image/jpeg;base64,@Session["emp3"].ToString()" alt="@Html.DisplayFor(model => model.employee.nom)">
-        </div>
-        <div class="dashboard-message-text">
-            <h4> @Html.DisplayFor(model => model.employee.nom)- <span> @Html.DisplayFor(model => model.employee.datenaissance)</span></h4>
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Prenom</span> :
-                <span class="booking-text">
-                    @Html.DisplayFor(model => model.employee.prenom)
-                </span>
+    <div class="dashboard-list">
+        <div class="dashboard-message">
+            <span class="new-dashboard-item">New</span>
+            <div class="dashboard-message-avatar">
+                <img src="data:image/jpeg;base64,@Session["emp3"].ToString()" alt="@Html.DisplayFor(model => model.employee.nom)">
             </div>
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Sexe  </span> :
-                <span class="booking-text"> @Html.DisplayFor(model => model.employee.sexe)</span>
-            </div>
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Etat D'employee </span> :
-                @if (Model.employee.isActif == true)
-                {
-                    <span class="booking-text">Actif</span>
-                }
-                else
-                {
-                    <span class="booking-text">NON Actif</span>
-                }
-            </div>
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Mail</span> :
-                <span class="booking-text">@Html.DisplayFor(model => model.employee.email)</span>
-            </div>
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Phone</span> :
-                <span class="booking-text"><a href="tel:+496170961709" target="_top">+496170961709</a></span>
-            </div>
+            <div class="dashboard-message-text">
+                <h4> @Html.DisplayFor(model => model.employee.nom)- <span> @Html.DisplayFor(model => model.employee.datenaissance)</span></h4>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Prenom</span> :
+                    <span class="booking-text">
+                        @Html.DisplayFor(model => model.employee.prenom)
+                    </span>
+                </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Sexe  </span> :
+                    <span class="booking-text"> @Html.DisplayFor(model => model.employee.sexe)</span>
+                </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Etat D'employee </span> :
+                    @if (Model.employee.isActif == true)
+                    {
+                        <span class="booking-text">Actif</span>
+                    }
+                    else
+                    {
+                        <span class="booking-text">NON Actif</span>
+                    }
+                </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Mail</span> :
+                    <span class="booking-text">@Html.DisplayFor(model => model.employee.email)</span>
+                </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Phone</span> :
+                    <span class="booking-text"><a href="tel:+496170961709" target="_top">+496170961709</a></span>
+                </div>
 
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Objet de reclamation</span> :
-                <span class="booking-text">
-                    @Html.DisplayFor(model => model.Objet)
-                </span>
-            </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Objet de reclamation</span> :
+                    <span class="booking-text">
+                        @Html.DisplayFor(model => model.Objet)
+                    </span>
+                </div>
 
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Description de  reclamation</span> :
-                <span class="booking-text">
-                    @Html.DisplayFor(model => model.Description)
-                </span>
-            </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Description de  reclamation</span> :
+                    <span class="booking-text">
+                        @Html.DisplayFor(model => model.Description)
+                    </span>
+                </div>
 
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Date reclamation</span> :
-                <span class="booking-text">
-                    @Html.DisplayFor(model => model.DateReclamation)
-                </span>
-            </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Date reclamation</span> :
+                    <span class="booking-text">
+                        @Html.DisplayFor(model => model.DateReclamation)
+                    </span>
+                </div>
 
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Etat Reclamation </span> :
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Etat Reclamation </span> :
+                    @if (Model.Etat == true)
+                    {
+                        <span class="booking-text">
+                            &nbsp;&nbsp;&nbsp; La demende est traite
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="booking-text">
+                            &nbsp;&nbsp;&nbsp; La demende n'est  pas  traite
+                        </span>
+                    }
+                </div>
+                <div class="booking-details fl-wrap">
+                    <span class="booking-title">Date de traitment Reclamation </span> :
+                    @if (Model.DateTraitement == null)
+                    {
+                        <span class="booking-text">
+                            &nbsp;&nbsp;&nbsp;   Encore non traite
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="booking-text">
+                            &nbsp;&nbsp;&nbsp; La demende est  le &nbsp;&nbsp;@Html.DisplayFor(model => model.DateTraitement)
+                        </span>
+                    }
+                </div>
                 @if (Model.Etat == true)
                 {
                     <span class="booking-text">
-                        &nbsp;&nbsp;&nbsp; La demende est traite
+                        La demende est traite
                     </span>
                 }
                 else
                 {
-                    <span class="booking-text">
-                        &nbsp;&nbsp;&nbsp; La demende n'est  pas  traite
+                    <span class="btn  circle-btn  color-bg flat-btn">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+                        <i class="fa-edit"></i>
                     </span>
                 }
+
+                <div class="booking-details fl-wrap">
+                    <span class="flat-btn">
+                        @Html.ActionLink("Back to List", "Index")
+
+                    </span>
+
+                </div>
+
             </div>
-            <div class="booking-details fl-wrap">
-                <span class="booking-title">Etat Reclamation </span> :
-                @if (Model.DateTraitement == null)
-                {
-                    <span class="booking-text">
-                        &nbsp;&nbsp;&nbsp;   Encore non traite
-                    </span>
-                }
-                else
-                {
-                    <span class="booking-text">
-                        &nbsp;&nbsp;&nbsp; La demende est  le &nbsp;&nbsp; @Html.DisplayFor(model => model.DateTraitement)
-                    </span>
-                }
-            </div>
-            @if (Model.Etat == true)
-            {
-                 <span class="booking-text">
-            La demende est traite
-                  </span>
-                }
-                else
-                {
-        <span class="btn  circle-btn  color-bg flat-btn">
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-            <i class="fa-edit"></i>
-        </span>
-                }
-      
-    </div>
-</div>
+
+        </div>
+     @ViewBag.re
+
+

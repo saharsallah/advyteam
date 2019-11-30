@@ -14,9 +14,11 @@ namespace Solution.Web.Controllers
     {
 
         IEmployeeService serviceemp;
+        IReclamationService service;
         public EmployeController()
         {
             serviceemp = new EmployeeService();
+            service = new ReclamationService();
 
         }
         employee emp;
@@ -62,6 +64,9 @@ namespace Solution.Web.Controllers
             emp = responce.Content.ReadAsAsync<employee>().Result;
             employee em;
             em = serviceemp.GetById(emp.id);
+            int a = service.Getreclamationnontraite();
+          
+            Session["notif"] = a;
 
             EmployeeModel E = new EmployeeModel
             {
@@ -86,12 +91,16 @@ namespace Solution.Web.Controllers
                 Session["emp4"] = emp.id;
                 Session["emp5"] = emp.email;
                 return Redirect("~/Home/About");
+               
             }
             else
             {
                 Session["emp4"] = emp.id;
                 return Redirect("~/Reclamation/Index");
+               
             }
+
+        
         }
 
         // GET: Employe/Edit/5

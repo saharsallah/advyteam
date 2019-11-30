@@ -17,6 +17,16 @@ namespace Solution.Service
         public ReclamationService() : base(unt)
         {
         }
+        public int Getreclamationnontraite()
+        {
+            return GetMany(reclamation =>(reclamation.Etat == false)).Count();
+        }
+
+        public IEnumerable<reclamation> GetMesrec(int idemp)
+        {
+            return GetMany( reclamation => (reclamation.EmployeeId == idemp));
+        }
+
 
 
     }
