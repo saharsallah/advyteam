@@ -41,18 +41,28 @@ namespace Solution.Web.Controllers
             {
                 HttpResponseMessage responce = Client.GetAsync("Piadvy-web/employe/emp?id=" + rec.EmployeeId).Result;
                 rec.employee = responce.Content.ReadAsAsync<employee>().Result;
-
-                
-
             }
             return View(lstRecl);
         }
 
+
+
         // GET: Reclamation/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            HttpClient Client = new HttpClient();
+            Client.BaseAddress = new Uri("http://localhost:9080");
+            Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            reclamation r = service.Get(f => f.Id == id);
+            HttpResponseMessage responce = Client.GetAsync("Piadvy-web/employe/emp?id=" + r.EmployeeId).Result;
+            r.employee = responce.Content.ReadAsAsync<employee>().Result;
+            return View(r);
         }
+
+
+
+
+
 
         // GET: Reclamation/Create
         public ActionResult Create()
@@ -71,19 +81,32 @@ namespace Solution.Web.Controllers
                 DateReclamation = DateTime.Now,
                 DateTraitement = null,
                 Etat = false,
-                EmployeeId = (int)Session["emp4"]
-            };    
-            service.Add(r);
-            service.Commit();
-                return RedirectToAction("Create");
+                //EmployeeId = (int)Session["emp4"]
+            };
+            int idemp = (int)Session["emp4"];
+            employee emp = serviceemp.GetById(idemp);
+            emp.Reclamations.Add(r);
+            serviceemp.Commit();
+            return RedirectToAction("Index");
             //return View();
         }
-
-
         // GET: Reclamation/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            reclamation r = service.Get(f => f.Id == id);
+            employee emp = serviceemp.GetById((int)r.EmployeeId);
+            //int idemp = (int)Session["emp4"];         
+            EmployeeModel E = new EmployeeModel
+            {
+                adresse = emp.adresse,
+                nom = emp.nom,
+                prenom = emp.prenom,
+                sexe = emp.sexe,
+                datenaissance = emp.datenaissance,
+                etatcivil = emp.etatcivil,
+                Type_emp = emp.Type_emp
+            };
+            return View(E);
         }
 
         // POST: Reclamation/Edit/5
