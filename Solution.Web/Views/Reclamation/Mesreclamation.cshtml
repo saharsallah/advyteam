@@ -41,9 +41,24 @@
 
                             <div class="geodir-category-options fl-wrap">
                                 <div class="">
-                              
-                                 
-                                    @ViewBag.res2[j]
+                                    @if (item.DateTraitement == null)
+                                    {
+                                        <p>
+                                            La reclamation : Est en cours  de traitment
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            Dure de traitement :   @ViewBag.res2[j] Jours
+                                        </p>
+                                    }
+
+                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
+                                        
+                                      
+                                    </div>
+
                                 </div>
                             </div>
 
