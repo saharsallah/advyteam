@@ -2,113 +2,132 @@
 
 @{
     ViewBag.Title = "Mesreclamation";
-    
+
     var j = 0;
 }
 
 
 
 
-    <table class="table">
+<table class="table">
 
 
- 
-        @foreach (var item in Model)
-        {
 
-            <div class="listsearch-maiwrap box-inside fl-wrap" style=" width:auto ; z-index: auto; position: center; margin-left: 10px; ">
-                <div class="list-main-wrap fl-wrap card-listing" style="width: auto;">
-                    <article class="geodir-category-listing fl-wrap" style="width: auto ;">
-                        <div class="geodir-category-img">
-                            <img src="data:image/jpeg;base64,@Session["emp3"].ToString() " width="100" height="100" />
-                        </div>
-                        <div class="box-widget-content" style="width: auto;">
-                            <p>Objet de reclamation : @Html.DisplayFor(modelItem => item.Objet)</p>
-                            <p>Description de reclamation : @Html.DisplayFor(modelItem => item.Description) </p>
-                            <p>Date reclamation :  @Html.DisplayFor(modelItem => item.DateReclamation) </p>
-                            @if (item.DateTraitement == null)
-                            {
-                                <p>
-                                    La reclamation  Encore non traité
-                                </p>
-                            }
-                            else
-                            {
-                                <p>
-                                    traité le      @Html.DisplayFor(modelItem => item.DateTraitement)
-                                </p>
-                            }
+    @foreach (var item in Model)
+    {
 
-                            <div class="geodir-category-options fl-wrap">
-                                <div class="">
-                                    @if (item.DateTraitement == null)
-                                    {
-                                        <p>
-                                            La reclamation : Est en cours  de traitment
-                                        </p>
-                                    }
-                                    else
-                                    {
-                                        <p>
-                                            Dure de traitement :   @ViewBag.res2[j] Jours
-                                        </p>
-                                    }
-                                    
-                                <div class="cs-social fl-wrap ">
-                                    @if (item.note == 0)
-                                    {
-                                        <ul>
-                                            <li>
-                                                <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=1,idrec=item.Id})'" src="~/Content/smile3.png" width="35" height="35" id="1" />
-                                            </li>
-                                            <li>
+        <div class="listsearch-maiwrap box-inside fl-wrap" style=" width:auto ; z-index: auto; position: center; margin-left: 10px; ">
+            <div class="list-main-wrap fl-wrap card-listing" style="width: auto;">
+                <article class="geodir-category-listing fl-wrap" style="width: auto ;">
+                    <div class="geodir-category-img">
+                        <img src="data:image/jpeg;base64,@Session["emp3"].ToString() " width="100" height="100" />
+                    </div>
+                    <div class="box-widget-content" style="width: auto;" >
+                        <p>Objet de reclamation : @Html.DisplayFor(modelItem => item.Objet)</p>
+                        <p>Description de reclamation : @Html.DisplayFor(modelItem => item.Description) </p>
+                        <p>Date reclamation :  @Html.DisplayFor(modelItem => item.DateReclamation) </p>
+                        @if (item.DateTraitement == null)
+                        {
+                            <p>
+                                La reclamation  Encore non traité
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                traité le      @Html.DisplayFor(modelItem => item.DateTraitement)
+                            </p>
+                        }
 
-                                            </li>
-                                            <li>
-                                                <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=2,idrec=item.Id})'" src="~/Content/smileh.png" width="35" height="35" id="2" />
-                                            </li>
-                                            <li>
-                                                <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=3,idrec=item.Id})'" src="~/Content/smilet.png" width="35" height="35" id="3" />
-                                            </li>
-                                        </ul>
+                        <div class="geodir-category-options fl-wrap" >
+                            <div class="">
+                                @if (item.DateTraitement == null)
+                                {
+                                    <p>
+                                        La reclamation : Est en cours  de traitment
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p>
+                                        Dure de traitement :   @ViewBag.res2[j] Jours
+                                    </p>
+                                }
+                                @if (item.DateTraitement == null)
+                                {
+                                    <p>
+                                        Tu peux pas ajouter  ton  avis
+                                    </p>
+                                }
+                                else
+                                {
 
-                                    }
-                                    else if (item.note == 1)
-                                    {
-                                        <ul>
-                                            <li>
-                                                <img src="~/Content/smile3.png" width="35" height="35" id="1" />
-                                            </li>
-                                        </ul>
-                                    }
-                                    else if (item.note == 2)
-                                    {
-                                        <ul>
+                                    <div id="div1" class="cs-social fl-wrap ">
+                                        @if (item.note == 0)
+                                        {
+                                            <ul>
+                                                <li>
+                                                    <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=1,idrec=item.Id})'" src="~/Content/smile3.png" width="35" height="35" id="1" />
+                                                </li>
+                                                <li>
 
-                                            <li>
-                                                <img src="~/Content/smileh.png" width="35" height="35" id="2" />
-                                            </li>
-                                        </ul>
-                                    }
-                                    else 
-                                    {
-                                        <ul>
-                                            <li>
-                                                <img src="~/Content/smilet.png" width="35" height="35" id="3" />
-                                            </li>
-                                        </ul>
-                                    }
-                                </div>
+                                                </li>
+                                                <li>
+                                                    <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=2,idrec=item.Id})'" src="~/Content/smileh.png" width="35" height="35" id="2" />
+                                                </li>
+                                                <li>
+                                                    <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=3,idrec=item.Id})'" src="~/Content/smilet.png" width="35" height="35" id="3" />
+                                                </li>
+                                            </ul>
 
-                       
-                       
-                        </div>
-                    </article>
-                </div>
+                                        }
+                                        else if (item.note == 1)
+                                        {
+                                            <ul>
+                                                <li>
+                                                    <img src="~/Content/smile3.png" width="35" height="35" id="1" />
+                                                </li>
+                                            </ul>
+                                        }
+                                        else if (item.note == 2)
+                                        {
+                                            <ul>
+
+                                                <li>
+                                                    <img src="~/Content/smileh.png" width="35" height="35" id="2" />
+                                                </li>
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <ul>
+                                                <li>
+                                                    <img src="~/Content/smilet.png" width="35" height="35" id="3" />
+                                                </li>
+                                            </ul>
+                                        }
+                                    </div>
+                                }
+
+
+
+                            </div>
+                </article>
             </div>
+        </div>
 
-         
-            j++;
-        }
-   
-    </table>
+
+        j++;
+    }
+
+</table>
+
+<script type="text/javascript">
+    function show() {
+        document.getElementById('div1').style.opacity = 1;
+    }
+
+    function hide() {
+        document.getElementById('div1').style.opacity = 0;
+    }
+</script>

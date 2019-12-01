@@ -4,24 +4,27 @@
 @{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
 
 @{
     EmployeeModel e = Session["EmployeeConnecte"] as EmployeeModel;
 }
-<h2>PageHome</h2>
 
-<p> @Session["emp"].ToString() </p>
-<p> @Session["emp2"].ToString() </p>
-<p>
-    <img src="data:image/jpeg;base64,@Session["emp3"].ToString() " width="130" height="130"></img>
-</p>
-<p>@Session["emp4"].ToString()</p>
-<p>@e.id</p>
-<p>@e.nom</p>
-<p>@e.datenaissance</p>
-<p>@e.isActif</p>
-<p>@e.etatcivil</p>
-<p>@Session["emp5"].ToString()</p>
 
+<div class="list-single-main-item fl-wrap">
+    <div class="list-single-main-item-title fl-wrap">
+        <h3>@e.nom <span>@Session["emp2"] </span></h3>
+    </div>
+    <div class="">
+        <img src="data:image/jpeg;base64,@Session["emp3"].ToString()" width="35%" height="35%"  alt="">
+    </div>
+    <div class="list-author-widget-contacts">
+        <ul>
+            <li><span><i class="fa fa-map-marker"></i> Adress :</span> <a href="#">@e.adresse</a></li>
+            <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">@Session["emp5"]</a></li>
+            <li><span><i class="fal fa-user-circle"></i> your Type :</span> <a href="#">@e.Type_emp</a></li>
+
+        </ul>
+    </div>
+   
+</div>

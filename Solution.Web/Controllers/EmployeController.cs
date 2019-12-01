@@ -48,6 +48,11 @@ namespace Solution.Web.Controllers
             return View();
         }
 
+        public ActionResult Chat()
+        {
+            return View();
+        }
+
         // GET: Employe/Create
         public ActionResult Create()
         {
@@ -210,7 +215,15 @@ namespace Solution.Web.Controllers
 
                 return strBuilder.ToString();
             }
-        
-       
+
+        public List<string> Listsujet (String s) 
+        {
+            List<string> l = new List<string>();
+            l.Add("Partie  de Rome vs Inter");
+            l.Add(s);
+            return l;
+        }
+
+
     }
 }

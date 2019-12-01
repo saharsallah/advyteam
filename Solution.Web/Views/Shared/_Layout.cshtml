@@ -26,6 +26,10 @@
     <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/plugins.css") />
     <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/style.css") />
     <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/color.css") />
+    <script type="text/javascript" src=@Url.Content("/Content/js/jquery.min.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Content/js/plugins.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Content/js/scripts.js")></script>
+    @RenderSection("scripts", required: false)
     <!--=============== favicons ===============-->
 </h:head>
 
@@ -272,9 +276,7 @@
 
 
     <!--=============== scripts  ===============-->
-    <script type="text/javascript" src=@Url.Content("/Content/js/jquery.min.js")></script>
-    <script type="text/javascript" src=@Url.Content("/Content/js/plugins.js")></script>
-    <script type="text/javascript" src=@Url.Content("/Content/js/scripts.js")></script>
+   
 
 
         <script type="text/javascript">
