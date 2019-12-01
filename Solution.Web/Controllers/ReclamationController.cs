@@ -76,6 +76,7 @@ namespace Solution.Web.Controllers
             employee emp = serviceemp.GetById(idemp);
             emp.Reclamations.Add(r);
             serviceemp.Commit();
+
             return RedirectToAction("Index");
             //return View();
         }
@@ -206,6 +207,11 @@ namespace Solution.Web.Controllers
 
             return RedirectToAction("Mesreclamation");
         }
+        public int Nbrrec() 
+        {
+            int a = service.Getreclamationnontraite();
+            return a;
 
+        }
     }
 }

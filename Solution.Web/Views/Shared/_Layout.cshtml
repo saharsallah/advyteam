@@ -7,6 +7,7 @@
 
 @{
     EmployeeModel e = Session["EmployeeConnecte"] as EmployeeModel;
+    
 }
 
 
@@ -92,7 +93,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="#">Gestion Employe</a> 
+                                <a href="#">Gestion Employe</a>
                             </li>
                             <li>
                                 <a href="listerEval.xhtml" class="act-link">Evaluation</a>
@@ -131,7 +132,7 @@
                             <div class="profile-edit-page-header">
 
                                 <h2>
-                                  
+
                                     G.Employee
 
                                 </h2>
@@ -158,10 +159,10 @@
 
                                                     <li>
                                                         <a href="addJSF.xhtml">
-                                                            <i class="" /> Ajouter Evaluation<span>@Session["notif"]</span>
+                                                             Ajouter Evaluation<span id="reclamationnb"></span>
                                                         </a>
                                                     </li>
-                                                    @if (@e.Type_emp=="devloppeur")
+                                                    @if (@e.Type_emp == "devloppeur")
                                                     {
                                                         <p>sdsd</p>
                                                     }
@@ -174,9 +175,6 @@
                                                                     <i class="" /> Ajouter Evaluation
                                                                 </a>
                                                             </li>
-
-
-
                                                         </ul>
                                                     }
                                                 </ul>
@@ -271,9 +269,47 @@
 
 
     </div>
+
+
     <!--=============== scripts  ===============-->
     <script type="text/javascript" src=@Url.Content("/Content/js/jquery.min.js")></script>
     <script type="text/javascript" src=@Url.Content("/Content/js/plugins.js")></script>
     <script type="text/javascript" src=@Url.Content("/Content/js/scripts.js")></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+
+
+                let s = false;
+
+                function getnbRecl() {
+		        $formChat = $("#reclamationnb").serialize();
+		        $.ajax({
+			        async : false,
+			        type : "POST",                              
+                    url: '@Url.Action("Nbrrec", "Reclamation")',          
+			        data : $formChat,
+			        success : function(msg) {
+				        $('#reclamationnb').html(msg);
+			        }
+		        });
+
+		         
+                }
+
+
+                var i = 0;
+                setInterval(function () {
+                    console.log(i);
+                    i = i + 1;
+                    getnbRecl();
+                }, 2000);
+
+            })
+        </script>
+
+    
 </body>
 </html>
