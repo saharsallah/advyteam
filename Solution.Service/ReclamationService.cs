@@ -27,7 +27,10 @@ namespace Solution.Service
             return GetMany( reclamation => (reclamation.EmployeeId == idemp));
         }
 
-
+        public IEnumerable<reclamation> Getrec()
+        {
+            return GetMany();
+        }
 
     }
 }

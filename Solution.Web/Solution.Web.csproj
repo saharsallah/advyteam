@@ -229,6 +229,7 @@
     <Compile Include="Models\Evaluation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MailEmployee.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ReclamationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,6 +313,9 @@
     <Content Include="Content\images\team\1.jpg" />
     <Content Include="Content\images\team\2.jpg" />
     <Content Include="Content\images\team\3.jpg" />
+    <Content Include="Content\smile3.png" />
+    <Content Include="Content\smileh.png" />
+    <Content Include="Content\smilet.png" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\datedropper.svg" />
     <Content Include="Content\fonts\fontawesome-webfont3e6e.svg" />
@@ -433,6 +437,7 @@
     <Content Include="Views\Reclamation\Details.cshtml" />
     <Content Include="Views\Reclamation\Edit.cshtml" />
     <Content Include="Views\Reclamation\Mesreclamation.cshtml" />
+    <Content Include="Views\Employe\Pagepassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

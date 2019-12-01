@@ -3,10 +3,11 @@ using Solution.Service;
 using Solution.Web.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
+using System.Security.Cryptography;
+using System.Text;
+using System.Net.Mail;
 
 namespace Solution.Web.Controllers
 {
@@ -153,5 +154,62 @@ namespace Solution.Web.Controllers
             Session.Contents.RemoveAll();
             return Redirect("~/Employe/Create");
         }
+
+
+        
+        public ActionResult Pagepassword()
+        {
+      
+
+            return View();
+        }
+
+
+        public ActionResult Npass(MailEmployee mailEmployee)
+        {
+          
+            employee e = serviceemp.Get(f => f.email.Equals(mailEmployee.email));
+            
+            e.password =MD5Hash("0000");
+
+            String email = e.email;
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("porjet2019@gmail.com");
+            mail.To.Add(email);
+            mail.Subject = "Votre nouvau password";
+            mail.Body = "Votre nouvau password:0000 est votre Mail est: "+e.email;
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("porjet2019@gmail.com", "duwhjaxubkjxebih");
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
+            serviceemp.Update(e);
+            serviceemp.Commit();
+
+            return Redirect("~/Employe/Create");
+        }
+
+        
+            public static string MD5Hash(string text)
+            {
+                MD5 md5 = new MD5CryptoServiceProvider();
+
+              
+                md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+                //get hash result after compute it  
+                byte[] result = md5.Hash;
+
+                StringBuilder strBuilder = new StringBuilder();
+                for (int i = 0; i < result.Length; i++)
+                {
+                    //change it into 2 hexadecimal digits  
+                    //for each byte  
+                    strBuilder.Append(result[i].ToString("x2"));
+                }
+
+                return strBuilder.ToString();
+            }
+        
     }
 }

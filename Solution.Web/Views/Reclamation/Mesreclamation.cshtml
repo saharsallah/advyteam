@@ -53,20 +53,55 @@
                                             Dure de traitement :   @ViewBag.res2[j] Jours
                                         </p>
                                     }
+                                    
+                                <div class="cs-social fl-wrap ">
+                                    @if (item.note == 0)
+                                    {
+                                        <ul>
+                                            <li>
+                                                <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=1,idrec=item.Id})'" src="~/Content/smile3.png" width="35" height="35" id="1" />
+                                            </li>
+                                            <li>
 
-                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
-                                        
-                                      
-                                    </div>
+                                            </li>
+                                            <li>
+                                                <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=2,idrec=item.Id})'" src="~/Content/smileh.png" width="35" height="35" id="2" />
+                                            </li>
+                                            <li>
+                                                <input type="image" onclick="location.href='@Url.Action("Addnoterec","Reclamation",new {id=3,idrec=item.Id})'" src="~/Content/smilet.png" width="35" height="35" id="3" />
+                                            </li>
+                                        </ul>
 
+                                    }
+                                    else if (item.note == 1)
+                                    {
+                                        <ul>
+                                            <li>
+                                                <img src="~/Content/smile3.png" width="35" height="35" id="1" />
+                                            </li>
+                                        </ul>
+                                    }
+                                    else if (item.note == 2)
+                                    {
+                                        <ul>
+
+                                            <li>
+                                                <img src="~/Content/smileh.png" width="35" height="35" id="2" />
+                                            </li>
+                                        </ul>
+                                    }
+                                    else 
+                                    {
+                                        <ul>
+                                            <li>
+                                                <img src="~/Content/smilet.png" width="35" height="35" id="3" />
+                                            </li>
+                                        </ul>
+                                    }
                                 </div>
-                            </div>
 
-                            <div class="geodir-category-options fl-wrap">
-                                <div class="btn transparent-btn float-btn custom-scroll-link" style="align-self">
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id })
-                                </div>
-                            </div>
+                       
+                       
                         </div>
                     </article>
                 </div>

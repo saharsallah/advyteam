@@ -32,7 +32,7 @@ namespace Solution.Web.Controllers
             Client.BaseAddress = new Uri("http://localhost:9080");
             Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             service = new ReclamationService();
-            IEnumerable<reclamation> lstRecl = service.GetMany();
+            IEnumerable<reclamation> lstRecl = service.Getrec();
             foreach (var rec in lstRecl)
             {
                 HttpResponseMessage responce = Client.GetAsync("Piadvy-web/employe/emp?id=" + rec.EmployeeId).Result;
@@ -133,6 +133,8 @@ namespace Solution.Web.Controllers
             SmtpServer.Credentials = new System.Net.NetworkCredential("porjet2019@gmail.com", "duwhjaxubkjxebih");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mail);
+            r.Etat = true;
+            r.DateTraitement = DateTime.Now;
             foreach (reclamation rec in emp.Reclamations)
             {
                 if (rec.Id == r.Id)
@@ -194,6 +196,15 @@ namespace Solution.Web.Controllers
            
             ViewBag.res2 = M;
             return View(lstRecl) ;
+        }
+
+        public ActionResult Addnoterec(int id,int idrec) 
+        { 
+           reclamation r = service.Get(f => f.Id == idrec);
+            r.note = id;
+            service.Commit();
+
+            return RedirectToAction("Mesreclamation");
         }
 
     }

@@ -12,5 +12,6 @@ namespace Solution.Service
     {
           int Getreclamationnontraite();
           IEnumerable<reclamation> GetMesrec(int idemp);
+         IEnumerable<reclamation> Getrec();
     }
 }
