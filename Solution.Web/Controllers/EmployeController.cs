@@ -101,8 +101,12 @@ namespace Solution.Web.Controllers
             }
             else
             {
+                Session["emp"] = emp.nom;
+                Session["emp2"] = emp.prenom;
+                Session["emp3"] = emp.image;
                 Session["emp4"] = emp.id;
-                return Redirect("~/Reclamation/Index");
+                Session["emp5"] = emp.email;
+                return Redirect("~/Home/About");
                
             }
 

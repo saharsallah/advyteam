@@ -108,6 +108,7 @@ namespace Solution.Web.Controllers
             reclamation r = service.Get(f => f.Id == id);
             employee emp = serviceemp.GetById((int)r.EmployeeId);
             String dateString = "yyyy/mm/dd";
+
             string json = new JavaScriptSerializer().Serialize(new
             {
                 id = emp.id,
@@ -119,10 +120,9 @@ namespace Solution.Web.Controllers
                 sexe = employeeModel.sexe
             });
 
-            
-
             requestMessage.Content = new StringContent(json, Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+
             String email = (String)emp.email;
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
@@ -134,6 +134,8 @@ namespace Solution.Web.Controllers
             SmtpServer.Credentials = new System.Net.NetworkCredential("porjet2019@gmail.com", "duwhjaxubkjxebih");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mail);
+
+
             r.Etat = true;
             r.DateTraitement = DateTime.Now;
             foreach (reclamation rec in emp.Reclamations)
@@ -144,7 +146,7 @@ namespace Solution.Web.Controllers
                     rec.DateTraitement = DateTime.Now;
                 }
             }
-            serviceemp.Update(emp);
+           // serviceemp.Update(emp);
             serviceemp.Commit();
             //     service.Commit();
             return RedirectToAction("Index");
@@ -192,9 +194,7 @@ namespace Solution.Web.Controllers
                     M[j++] = t.Days ;
 
                 }
-             
-            }
-           
+            }           
             ViewBag.res2 = M;
             return View(lstRecl) ;
         }
@@ -203,8 +203,17 @@ namespace Solution.Web.Controllers
         { 
            reclamation r = service.Get(f => f.Id == idrec);
             r.note = id;
-            service.Commit();
+           employee e = serviceemp.Get(f => f.id == r.EmployeeId);
 
+            foreach (reclamation rec in e.Reclamations)
+            {
+                if (rec.Id == r.Id)
+                {
+                 rec.note = id;
+               }
+            }
+
+            serviceemp.Commit();
             return RedirectToAction("Mesreclamation");
         }
         public int Nbrrec() 
