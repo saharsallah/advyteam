@@ -1,14 +1,21 @@
-namespace Solution.Data
+namespace Solution.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    [Table("advyteam.evaluation")]
+
+    public enum EvaluationType {
+        AnnualEvaluation,
+        Evaluation360,
+        MiTermEvaluation
+    }
+
+    [Table("evaluation")]
     public partial class evaluation
     {
+        
         [Required]
         [StringLength(31)]
         public string e_type { get; set; }
@@ -25,7 +32,7 @@ namespace Solution.Data
         [StringLength(255)]
         public string nom { get; set; }
 
-        public int? type { get; set; }
+        public EvaluationType type { get; set; }
 
         public DateTime? dateEcheance { get; set; }
 

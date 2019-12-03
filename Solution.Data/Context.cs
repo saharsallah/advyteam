@@ -4,6 +4,8 @@ namespace Solution.Data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Solution.Domain.Entities;
+    using Solution.Data.Configurations;
 
     public partial class Context : DbContext
     {
@@ -12,6 +14,8 @@ namespace Solution.Data
         {
         }
 
+        public virtual DbSet<attestationtest> attestationtests { get; set; }
+        public virtual DbSet<autotest> autotests { get; set; }
         public virtual DbSet<categorie> categories { get; set; }
         public virtual DbSet<commentaire> commentaires { get; set; }
         public virtual DbSet<commentairepub> commentairepubs { get; set; }
@@ -27,19 +31,43 @@ namespace Solution.Data
         public virtual DbSet<examan> examen { get; set; }
         public virtual DbSet<formation> formations { get; set; }
         public virtual DbSet<mission> missions { get; set; }
+        public virtual DbSet<note> notes { get; set; }
+        public virtual DbSet<notefrai> notefrais { get; set; }
         public virtual DbSet<objectif> objectifs { get; set; }
         public virtual DbSet<participant> participants { get; set; }
         public virtual DbSet<projet> projets { get; set; }
         public virtual DbSet<publication> publications { get; set; }
         public virtual DbSet<question> questions { get; set; }
+        public virtual DbSet<questiontest> questiontests { get; set; }
         public virtual DbSet<quiz> quizs { get; set; }
         public virtual DbSet<reponse> reponses { get; set; }
         public virtual DbSet<tache> taches { get; set; }
         public virtual DbSet<timesheet> timesheets { get; set; }
         public virtual DbSet<typeformation> typeformations { get; set; }
+        public virtual DbSet<avis> avis { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<attestationtest>()
+                .Property(e => e.nom)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<attestationtest>()
+                .Property(e => e.type)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<autotest>()
+                .Property(e => e.StatusTest)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<autotest>()
+                .Property(e => e.TestName)
+                .IsUnicode(false);
+
+            
+           
+
+         
             modelBuilder.Entity<commentaire>()
                 .Property(e => e.type_com)
                 .IsUnicode(false);
@@ -172,6 +200,10 @@ namespace Solution.Data
                 .Property(e => e.libelle)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<notefrai>()
+                .Property(e => e.libelle)
+                .IsUnicode(false);
+
             modelBuilder.Entity<objectif>()
                 .Property(e => e.obj1)
                 .IsUnicode(false);
@@ -220,6 +252,30 @@ namespace Solution.Data
                 .Property(e => e.description)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<questiontest>()
+                .Property(e => e.Rep1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<questiontest>()
+                .Property(e => e.Rep2)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<questiontest>()
+                .Property(e => e.Rep3)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<questiontest>()
+                .Property(e => e.Rep4)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<questiontest>()
+                .Property(e => e.ReponseCorrect)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<questiontest>()
+                .Property(e => e.question1)
+                .IsUnicode(false);
+
             modelBuilder.Entity<timesheet>()
                 .Property(e => e.description)
                 .IsUnicode(false);
@@ -235,6 +291,7 @@ namespace Solution.Data
             modelBuilder.Entity<typeformation>()
                 .Property(e => e.type)
                 .IsUnicode(false);
+            modelBuilder.Configurations.Add(new AvisConfiguration());
         }
     }
 }

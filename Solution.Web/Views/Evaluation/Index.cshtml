@@ -1,32 +1,91 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width"/>
-    <title></title>
-
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste Des Evaluations</title>
 </head>
 <body>
-    <a href="@Url.Action("Create"," evaluation")">add new eval</a>
-    <table cellpadding="2" cellspacing="2" border="1">
-      
-        
-       <tr>nom</tr>
-        <tr>description</tr>
-        <tr>type</tr>
-        <tr>obj</tr>
-        
-        @foreach(var p in ViewBag.result)
-        {
-    <tr>
-        <td>@p.nom</td>
-        <td>@p.description</td>
-        <td>@p.e_type</td>
-        <td>@p.objectif</td>
-    </tr>
-        }
-    </table>
-       </body>
 
+    <h:form class="custom-form">
+
+
+        <div class="col-md-9">
+
+            <div class="dashboard-list-box fl-wrap">
+                <div class="dashboard-header fl-wrap">
+                    <h3>Liste des evaluations</h3>
+                </div>
+                <!-- dashboard-list end-->
+
+                <div class="dashboard-list">
+                    <div class="dashboard-message">
+                        <span class="new-dashboard-item"><a href="">New </a></span>
+
+                        @foreach (var p in ViewBag.result)
+                        {
+
+                            <div class="dashboard-listing-table-text">
+                                <h4>Nom : <a href="">@p.nom</a></h4>
+                                <h3>Type : @p.type</h3>
+                                <h3>Employe : </h3>
+                                <h2>Descreption : @p.description</h2>
+                                <h2>Objectif : @p.objectif</h2>
+
+
+
+
+
+
+                                <ul class="dashboard-listing-table-opt  fl-wrap">
+
+                                    <li>
+                                        <a href="@Url.Action("Delete", "evaluation", new { id = @p.id })" class="btn btn-tool" data-widget="remove" onclick="return confirm('Are you sure you want to delete this item?');">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+
+
+
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="#" value="edit">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </h:commandLink>
+                                    </li>
+
+                                    <li>
+                                        <h:commandLink action="#" value="read file">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </h:commandLink>
+                                    </li>
+
+
+
+                                </ul>
+
+
+
+
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </h:form>
+
+
+
+</body>
 </html>
+
+
 

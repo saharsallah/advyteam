@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Solution.Web.Models.ModelAvis>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste Des Questionnaires</title>
+</head>
+<body>
+
+    <h:form class="custom-form">
+
+
+        <div class="col-md-9">
+
+            <div class="dashboard-list-box fl-wrap">
+                <div class="dashboard-header fl-wrap">
+                    <h3>Liste Des Questionnaires</h3>
+                </div>
+                <!-- dashboard-list end-->
+
+                <div class="dashboard-list">
+                    <div class="dashboard-message">
+                        <span class="new-dashboard-item"><a> @Html.ActionLink("Ajouter un Questionnaire", "Create")</a></span>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="dashboard-listing-table-text">
+                                <h4>Nom : <a href="">@Html.DisplayFor(modelItem => item.avis1)</a></h4>
+                                <h3>Type : @Html.DisplayFor(modelItem => item.dateAvis)</h3>
+                                <h3>Employe : </h3>
+                                <h2>Descreption :  @Html.DisplayFor(modelItem => item.etat)</h2>
+                                <h2>Objectif : @Html.DisplayFor(modelItem => item.id)</h2>
+
+
+
+
+
+
+                                <ul class="dashboard-listing-table-opt  fl-wrap">
+
+                                    <li>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) 
+
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }) 
+                                    </li>
+
+                                    <li>
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Confirmer", "Confirmer", new { id = item.id })
+                                    </li>
+
+
+                                </ul>
+
+
+
+
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </h:form>
+
+
+
+</body>
+</html>
+
+

@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\attestationtest.cs" />
+    <Compile Include="Entities\autotest.cs" />
+    <Compile Include="Entities\avis.cs" />
     <Compile Include="Entities\categorie.cs" />
     <Compile Include="Entities\commentaire.cs" />
     <Compile Include="Entities\commentairepub.cs" />
@@ -67,11 +70,14 @@
     <Compile Include="Entities\examan.cs" />
     <Compile Include="Entities\formation.cs" />
     <Compile Include="Entities\mission.cs" />
+    <Compile Include="Entities\note.cs" />
+    <Compile Include="Entities\notefrai.cs" />
     <Compile Include="Entities\objectif.cs" />
     <Compile Include="Entities\participant.cs" />
     <Compile Include="Entities\projet.cs" />
     <Compile Include="Entities\publication.cs" />
     <Compile Include="Entities\question.cs" />
+    <Compile Include="Entities\questiontest.cs" />
     <Compile Include="Entities\quiz.cs" />
     <Compile Include="Entities\reponse.cs" />
     <Compile Include="Entities\tache.cs" />

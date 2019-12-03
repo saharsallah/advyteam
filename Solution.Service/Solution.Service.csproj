@@ -52,7 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvaluationService.cs" />
+    <Compile Include="IEvaluationService.cs" />
+    <Compile Include="IServiceAvis.cs" />
+    <Compile Include="IServiceEmp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceAvis.cs" />
+    <Compile Include="ServiceEmp.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Service.Pattern\Service.Pattern.csproj">

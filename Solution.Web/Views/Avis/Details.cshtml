@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Solution.Web.Models.ModelAvis>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Questionnaire</title>
+
+
+</head>
+
+
+<body>
+
+    <h:form class="custom-form">
+
+        <div class="col-md-9">
+
+            <div class="dashboard-list-box fl-wrap">
+                <div class="dashboard-header fl-wrap">
+                    <h3>Questionnaire</h3>
+                </div>
+                <!-- dashboard-list end-->
+
+                <div class="dashboard-list">
+                    <div class="dashboard-message">
+                        <span class="new-dashboard-item"><a>  @Html.ActionLink("Back to List", "Index")</a></span>
+                        <div>
+
+                            <hr />
+                            <div class="dl-horizontal">
+                                @foreach (var item in Model)
+                                {
+                          
+                                    <div class=" fl-wrap filter-tags">
+                                        <h4> @Html.DisplayFor(modelItem => item.avis1) </h4>
+                                        <input id="check-a" type="radio" name="check">
+                                        <label for="check-a"> @Html.DisplayFor(modelItem => item.rep1)</label>
+                                        <input id="check-b" type="radio" name="check">
+                                        <label for="check-b"> @Html.DisplayFor(modelItem => item.rep2)</label>
+                                        <input id="check-c" type="radio" name="check">
+                                        <label for="check-c"> @Html.DisplayFor(modelItem => item.rep3)</label>
+                                    </div>
+
+                                    <div class=" fl-wrap filter-tags">
+                                        <h4> @Html.DisplayFor(modelItem => item.avis2) </h4>
+                                        <input id="check-d" type="radio" name="check1">
+                                        <label for="check-d"> @Html.DisplayFor(modelItem => item.rep3)</label>
+                                        <input id="check-d" type="radio" name="check1">
+                                        <label for="check-d"> @Html.DisplayFor(modelItem => item.rep4)</label>
+                                        <input id="check-d" type="radio" name="check1">
+                                        <label for="check-d"> @Html.DisplayFor(modelItem => item.rep5)</label>
+                                    </div>
+                                    <div class=" fl-wrap filter-tags">
+                                        <h4> @Html.DisplayFor(modelItem => item.avis3) </h4>
+                                        <input id="check-a" type="radio" name="check2">
+                                        <label for="check-a"> @Html.DisplayFor(modelItem => item.rep6)</label>
+                                        <input id="check-b" type="radio" name="check2">
+                                        <label for="check-b"> @Html.DisplayFor(modelItem => item.rep7)</label>
+                                        <input id="check-c" type="radio" name="check2">
+                                        <label for="check-c"> @Html.DisplayFor(modelItem => item.rep8)</label>
+                                    </div>
+
+                                    <div class=" fl-wrap filter-tags">
+                                        <h4> @Html.DisplayFor(modelItem => item.avis4) </h4>
+                                        <input id="check-a" type="radio" name="check3">
+                                        <label for="check-a"> @Html.DisplayFor(modelItem => item.rep9)</label>
+                                        <input id="check-b" type="radio" name="check3">
+                                        <label for="check-b"> @Html.DisplayFor(modelItem => item.rep10)</label>
+                                        <input id="check-c" type="radio" name="check3">
+                                        <label for="check-c"> @Html.DisplayFor(modelItem => item.rep11)</label>
+                                    </div>
+
+                              
+
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.dateAvis)
+                                    </dt>
+                                    <dt>
+                                        @Html.DisplayFor(modelItem => item.dateAvis)
+                                    </dt>
+
+
+
+
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.etat)
+                                    </dt>
+
+                                    <dt>
+                                        @Html.DisplayFor(modelItem => item.etat)
+                                    </dt>
+                                  
+
+                           
+             
+           
+  
+        }  
+
+                                        }
+</div>
+                    </div>
+
+
+                </div>
+</div>
+                </div>
+            </div>
+    </h:form>
+
+
+
+</body>
+</html>
+

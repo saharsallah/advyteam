@@ -1,18 +1,18 @@
-namespace Solution.Data
+namespace Solution.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+   
 
-    [Table("advyteam.employee")]
+    [Table("employee")]
     public partial class employee
     {
         [Required]
         [StringLength(31)]
         public string Type_emp { get; set; }
-
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
@@ -53,5 +53,9 @@ namespace Solution.Data
         public string sexe { get; set; }
 
         public int? contrat_reference { get; set; }
+
+        public int? mission_id { get; set; }
+        public virtual ICollection<avis> aviss { get; set; }
+
     }
 }
