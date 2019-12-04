@@ -129,6 +129,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="ToastNotifications, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
+      <HintPath>..\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -163,12 +166,17 @@
     <Compile Include="Controllers\AvisController.cs" />
     <Compile Include="Controllers\EvaluationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MissionController.cs" />
+    <Compile Include="Controllers\NoteDeFraisController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MissionModel.cs" />
     <Compile Include="Models\ModelAvis.cs" />
     <Compile Include="Models\ModelEvaluation.cs" />
+    <Compile Include="Models\ModelMission.cs" />
+    <Compile Include="Models\ModelNoteDeFrais.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +356,13 @@
     <Content Include="Views\Avis\Delete.cshtml" />
     <Content Include="Views\Avis\Edit.cshtml" />
     <Content Include="Views\Avis\Details.cshtml" />
+    <Content Include="Views\Mission\Affichage.cshtml" />
+    <Content Include="Views\Mission\Create.cshtml" />
+    <Content Include="Views\Mission\Index.cshtml" />
+    <Content Include="Views\NoteDeFrais\Create.cshtml" />
+    <Content Include="Views\NoteDeFrais\Delete.cshtml" />
+    <Content Include="Views\NoteDeFrais\Edit.cshtml" />
+    <Content Include="Views\NoteDeFrais\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

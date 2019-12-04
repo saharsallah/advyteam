@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\AvisConfiguration.cs" />
+    <Compile Include="Configurations\NotefraiConfiguration.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Infrastructures\DataBaseFactory.cs" />
     <Compile Include="Infrastructures\Disposable.cs" />
@@ -87,13 +88,9 @@
     <Compile Include="Infrastructures\IUnitOfWork.cs" />
     <Compile Include="Infrastructures\RepositoryBase.cs" />
     <Compile Include="Infrastructures\UnitOfWork.cs" />
-    <Compile Include="Migrations\201912021510102_test.cs" />
-    <Compile Include="Migrations\201912021510102_test.Designer.cs">
-      <DependentUpon>201912021510102_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912021517309_relation.cs" />
-    <Compile Include="Migrations\201912021517309_relation.Designer.cs">
-      <DependentUpon>201912021517309_relation.cs</DependentUpon>
+    <Compile Include="Migrations\201912031701561_haya.cs" />
+    <Compile Include="Migrations\201912031701561_haya.Designer.cs">
+      <DependentUpon>201912031701561_haya.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\myMigrationSQLGenerator.cs" />
@@ -113,11 +110,8 @@
     <Folder Include="CustomConventions\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912021510102_test.resx">
-      <DependentUpon>201912021510102_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912021517309_relation.resx">
-      <DependentUpon>201912021517309_relation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912031701561_haya.resx">
+      <DependentUpon>201912031701561_haya.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

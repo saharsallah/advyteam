@@ -1,4 +1,4 @@
-namespace Solution.Data
+namespace Solution.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -31,5 +31,12 @@ namespace Solution.Data
 
         [StringLength(255)]
         public string libelle { get; set; }
+
+        public bool MissionReussit { get; set; }
+        public int nbrMissionReussit { get; set; }
+        public bool missionNational { get; set; }
+        public bool missionInternational { get; set; }
+        public virtual ICollection<notefrai> notes { get; set; }
+
     }
 }

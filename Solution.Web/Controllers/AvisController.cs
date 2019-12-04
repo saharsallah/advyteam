@@ -165,11 +165,12 @@ namespace Solution.Web.Controllers
             av.etat = a.etat;
             av.idEmplye = a.idEmplye;
 
-
+           
             s.Add(av);
             s.Commit();
-             
-        
+
+            employee ee = new employee();
+            ee = e.GetById(a.idEmplye);
             avis p1 = s.GetById(av.id);
             p1.rep15 = av.rep15;
 
@@ -182,12 +183,12 @@ namespace Solution.Web.Controllers
                 var link = Request.Url.AbsolutePath.Replace(Request.Url.PathAndQuery, verifyurl);
 
                 var fromEmail = new MailAddress("fatma.dayeg@esprit.tn", "AdvyTeam");
-                var toEmail = new MailAddress("saharsallah6@gmail.com");
+                var toEmail = new MailAddress(ee.email);
                 var FromEmailPassword = "172jft1681";
 
-                string subject = "Response On Formation Application";
+                string subject = "Evaluation 360";
 
-                string body = "! Go check your Result. " +
+                string body = "une evaluation 360 a été crée en votre nom ! vous pouvez la consultez " +
                     "<br/><a href = '" + link + "'>" + link + "</a>";
 
                 var smtp = new SmtpClient

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Solution.Web.Models.ModelAvis>
+@Scripts.Render("~/bundles/jquery")
 
 @{
     ViewBag.Title = "Details";
@@ -6,8 +7,7 @@
 }
 
 
-<!DOCTYPE html>
-<html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Questionnaire</title>
@@ -37,47 +37,48 @@
                             <div class="dl-horizontal">
                                 @foreach (var item in Model)
                                 {
-                          
+
                                     <div class=" fl-wrap filter-tags">
                                         <h4> @Html.DisplayFor(modelItem => item.avis1) </h4>
-                                        <input id="check-a" type="radio" name="check">
-                                        <label for="check-a"> @Html.DisplayFor(modelItem => item.rep1)</label>
-                                        <input id="check-b" type="radio" name="check">
-                                        <label for="check-b"> @Html.DisplayFor(modelItem => item.rep2)</label>
-                                        <input id="check-c" type="radio" name="check">
-                                        <label for="check-c"> @Html.DisplayFor(modelItem => item.rep3)</label>
+                                        <input id="a1" type="radio" name="check" runat="server">
+                                        <label for="a1"> @Html.DisplayFor(modelItem => item.rep1)</label>
+                                        <input id="a2" type="radio" name="check" runat="server">
+                                        <label for="a2"> @Html.DisplayFor(modelItem => item.rep2)</label>
+                                        <input id="a3" type="radio" name="check" runat="server">
+                                        <label for="a3"> @Html.DisplayFor(modelItem => item.rep3)</label>
+
                                     </div>
 
                                     <div class=" fl-wrap filter-tags">
                                         <h4> @Html.DisplayFor(modelItem => item.avis2) </h4>
-                                        <input id="check-d" type="radio" name="check1">
-                                        <label for="check-d"> @Html.DisplayFor(modelItem => item.rep3)</label>
-                                        <input id="check-d" type="radio" name="check1">
-                                        <label for="check-d"> @Html.DisplayFor(modelItem => item.rep4)</label>
-                                        <input id="check-d" type="radio" name="check1">
-                                        <label for="check-d"> @Html.DisplayFor(modelItem => item.rep5)</label>
+                                        <input id="a4" type="radio" name="check1">
+                                        <label for="a4"> @Html.DisplayFor(modelItem => item.rep3)</label>
+                                        <input id="a5" type="radio" name="check1">
+                                        <label for="a5"> @Html.DisplayFor(modelItem => item.rep4)</label>
+                                        <input id="a6" type="radio" name="check1">
+                                        <label for="a6"> @Html.DisplayFor(modelItem => item.rep5)</label>
                                     </div>
                                     <div class=" fl-wrap filter-tags">
                                         <h4> @Html.DisplayFor(modelItem => item.avis3) </h4>
-                                        <input id="check-a" type="radio" name="check2">
-                                        <label for="check-a"> @Html.DisplayFor(modelItem => item.rep6)</label>
-                                        <input id="check-b" type="radio" name="check2">
-                                        <label for="check-b"> @Html.DisplayFor(modelItem => item.rep7)</label>
-                                        <input id="check-c" type="radio" name="check2">
-                                        <label for="check-c"> @Html.DisplayFor(modelItem => item.rep8)</label>
+                                        <input id="a7" type="radio" name="check2">
+                                        <label for="a7"> @Html.DisplayFor(modelItem => item.rep6)</label>
+                                        <input id="a8" type="radio" name="check2">
+                                        <label for="a8"> @Html.DisplayFor(modelItem => item.rep7)</label>
+                                        <input id="a9" type="radio" name="check2">
+                                        <label for="a9"> @Html.DisplayFor(modelItem => item.rep8)</label>
                                     </div>
 
                                     <div class=" fl-wrap filter-tags">
                                         <h4> @Html.DisplayFor(modelItem => item.avis4) </h4>
-                                        <input id="check-a" type="radio" name="check3">
-                                        <label for="check-a"> @Html.DisplayFor(modelItem => item.rep9)</label>
-                                        <input id="check-b" type="radio" name="check3">
-                                        <label for="check-b"> @Html.DisplayFor(modelItem => item.rep10)</label>
-                                        <input id="check-c" type="radio" name="check3">
-                                        <label for="check-c"> @Html.DisplayFor(modelItem => item.rep11)</label>
+                                        <input id="a10" type="radio" name="check3">
+                                        <label for="a10"> @Html.DisplayFor(modelItem => item.rep9)</label>
+                                        <input id="a11" type="radio" name="check3">
+                                        <label for="a11"> @Html.DisplayFor(modelItem => item.rep10)</label>
+                                        <input id="a12" type="radio" name="check3">
+                                        <label for="a12"> @Html.DisplayFor(modelItem => item.rep11)</label>
                                     </div>
 
-                              
+
 
 
                                     <dt>
@@ -98,27 +99,80 @@
                                     <dt>
                                         @Html.DisplayFor(modelItem => item.etat)
                                     </dt>
-                                  
 
-                           
-             
-           
-  
-        }  
 
-                                        }
-</div>
+
+
+
+
+                                }
+
+
+                            </div>
+                        </div>
+
+
                     </div>
-
-
-                </div>
-</div>
                 </div>
             </div>
+        </div>
     </h:form>
 
 
 
 </body>
-</html>
 
+
+
+<input id="ff" value="confirmer" type="submit" class="btn btn-thm" onclick="test()">
+<script>
+                             
+    function test() {
+        var a = 0;
+        if (document.getElementById("a1").checked ){
+           
+            a = a+3;
+        }
+        if (document.getElementById("a4").checked) {
+            a = a + 3;
+        }
+         if (document.getElementById("a7").checked) {
+            a = a + 3;
+         }
+         if (document.getElementById("a10").checked) {
+            a = a + 3;
+         }
+         if (document.getElementById("a2").checked) {
+            a = a + 2;
+         }
+         if (document.getElementById("a5").checked) {
+            a = a + 2;
+         }
+         if (document.getElementById("a8").checked) {
+            a = a + 2;
+         }
+         if (document.getElementById("a11").checked) {
+            a = a + 2;
+         }
+         if (document.getElementById("a3").checked) {
+            a = a + 1;
+         }
+         if (document.getElementById("a6").checked) {
+            a = a + 1;
+         }
+         if (document.getElementById("a9").checked) {
+            a = a + 1;
+         }
+         if (document.getElementById("a12").checked) {
+            a = a + 1;
+        }
+      
+        if (a <=5) {
+            alert("bhim");
+        } else if (a > 5 && a <9) {
+            alert("metwaset");
+        } else if (a>9) {
+            alert("dhkey");
+        }
+    }
+</script>

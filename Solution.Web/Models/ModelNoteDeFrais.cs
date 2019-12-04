@@ -1,33 +1,32 @@
-﻿using System;
+﻿using Solution.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
-namespace Solution.Domain.Entities
+namespace Solution.Web.Models
 {
-   public class notefrai
+    public class ModelNoteDeFrais
     {
-        [Key]
         public int id { get; set; }
 
-       
+
         public bool Remboursable { get; set; }
 
-       
+
         public string libelle { get; set; }
 
         public double montant { get; set; }
 
         public double tauxderembourssement { get; set; }
 
-        public bool Bonus { get; set; }
-       
+
         public int? MissionId { get; set; }
-        [ForeignKey("MissionId")]
-        public virtual mission Mission { get; set; }
+        [Display(Name="MissionId")]
+        public IEnumerable<SelectListItem> Missions { get; set; }
+
     }
 }
-

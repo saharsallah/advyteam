@@ -292,6 +292,8 @@ namespace Solution.Data
                 .Property(e => e.type)
                 .IsUnicode(false);
             modelBuilder.Configurations.Add(new AvisConfiguration());
+            modelBuilder.Configurations.Add(new NotefraiConfiguration());
+
         }
     }
 }

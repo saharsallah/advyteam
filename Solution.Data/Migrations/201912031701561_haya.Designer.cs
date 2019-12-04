@@ -7,13 +7,13 @@ namespace Solution.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class relation : IMigrationMetadata
+    public sealed partial class haya : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(relation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(haya));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912021517309_relation"; }
+            get { return "201912031701561_haya"; }
         }
         
         string IMigrationMetadata.Source

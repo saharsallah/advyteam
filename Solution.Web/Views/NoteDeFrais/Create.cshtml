@@ -1,0 +1,91 @@
+﻿@model Solution.Web.Models.ModelNoteDeFrais
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/toastr")
+@{
+	ViewBag.Title = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/toastr.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+<link href="~/Content/toastr.css" rel="stylesheet" />
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<h4>ModelNoteDeFrais</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="form-group">
+			@Html.LabelFor(model => model.Remboursable, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				<div class="checkbox">
+					@Html.EditorFor(model => model.Remboursable)
+					@Html.ValidationMessageFor(model => model.Remboursable, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.libelle, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.libelle, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.libelle, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.montant, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.montant, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.montant, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.tauxderembourssement, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.tauxderembourssement, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.tauxderembourssement, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.MissionId, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownList("MissionId", (SelectList)ViewData["listprod"])
+				@Html.ValidationMessageFor(model => model.MissionId, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Create" class="btn btn-default" onclick="test()" />
+			</div>
+		</div>
+	</div>
+	<script src="~/Scripts/toastr.js"></script>
+	<script src="~/Scripts/jquery-3.3.1.js"></script>
+	<script>
+		function test() {
+			toastr.success("slim");
+			
+			alert("verif");
+
+		}
+	</script>
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
