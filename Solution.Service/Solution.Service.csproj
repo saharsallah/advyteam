@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EvaluationService.cs" />
+    <Compile Include="IdemandeMissionService.cs" />
     <Compile Include="IEvaluationService.cs" />
     <Compile Include="IMissionService.cs" />
     <Compile Include="INoteDeFraisService.cs" />
