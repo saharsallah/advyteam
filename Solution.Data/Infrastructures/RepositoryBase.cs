@@ -69,5 +69,10 @@ namespace Solution.Data.Infrastructure
                 
 
         }
+        public virtual IEnumerable<T> GetAll()
+        {
+            return DbSet.ToList();
+        }
+    
     }
 }

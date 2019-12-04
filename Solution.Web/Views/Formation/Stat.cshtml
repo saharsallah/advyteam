@@ -1,0 +1,80 @@
+﻿@model Solution.Web.Models.optionsViewModel
+
+@{
+    ViewBag.Title = "Stat";
+    Layout = "~/Views/Shared/_Layouttt.cshtml";
+}
+<script>
+  window.onload = function () {
+    
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Line Chart Formations"
+            },
+            axisX: {
+                valueFormatString: "DD MMM",
+                crosshair: {
+                    enabled: true,
+                    snapToDataPoint: true
+                }
+            },
+            axisY: {
+                title: "Nombre de formations",
+                crosshair: {
+                    enabled: true
+                }
+            },
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                verticalAlign: "bottom",
+                horizontalAlign: "left",
+                dockInsidePlotArea: true,
+                itemclick: toogleDataSeries
+            },
+            data: [{
+                type: "line",
+                showInLegend: true,
+                name: " ",
+                markerType: "square",
+                xValueFormatString: "DD MMM, YYYY",
+                color: "#F08080",
+                dataPoints: [
+                    { x: new Date(2019, 0, 1), y: @Model.Janvier },
+                    { x: new Date(2019, 1, 1), y: @Model.Fevrier },
+                    { x: new Date(2019, 2, 1), y: @Model.Mars },
+                    { x: new Date(2019, 3, 1), y: @Model.Avril},
+                    { x: new Date(2019, 4, 1), y: @Model.Mai },
+                    { x: new Date(2019, 5, 1), y: @Model.Juin },
+                    { x: new Date(2019, 6, 1), y: @Model.Juillet },
+                    { x: new Date(2019, 7, 1), y: @Model.Aout },
+                    { x: new Date(2019, 8, 1), y: @Model.Septembre },
+                    { x: new Date(2019, 9, 1), y: @Model.Octobre },
+                    { x: new Date(2019, 10, 1), y: @Model.Novembre },
+                    { x: new Date(2019, 11, 1), y: @Model.Decembre },
+                ]
+            }]
+        });
+        chart.render();
+
+        function toogleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            } else {
+                e.dataSeries.visible = true;
+            }
+            chart.render();
+        }
+
+    }
+</script>
+<h2>Stat</h2>
+<h4>Voir les statistiques des formations pendant cette année</h4>
+
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

@@ -1,3 +1,62 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if(Session["user"] == null) { 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <!--=============== basic  ===============-->
+    <meta charset="UTF-8" />
+    <title>piAdvy</title>
+
+    <!--=============== css  ===============-->
+    <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/reset.css") />
+    <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/plugins.css") />
+    <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/style.css") />
+    <link type="text/css" rel="stylesheet" href=@Url.Content("/Content/css/color.css") />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+
+    <!--=============== favicons ===============-->
+    <link rel="shortcut icon" href=@Url.Content("/Content/images/favicon.ico") />
+</head>
+
+<body>
+    <div>
+        <div class="close-reg"><i class="fa fa-times"></i></div>
+        <h3>Sign In <span>pi<strong>Advy</strong></span></h3>
+
+        <div id="tabs-container">
+            <div class="tab">
+                <div id="tab-1" class="tab-content">
+                    <div class="custom-form">
+                        <form method="post" action="/Formation/Login">
+                            <label>Username or Email Address * </label>
+                            <input name="email" type="text" onClick="this.select()" value="" />
+                            <label>Password * </label>
+                            <input name="password" type="password" onClick="this.select()" value="" />
+                            <button type="submit" class="log-submit-btn"><span>Log In</span></button>
+                            <div class="clearfix"></div>
+                            <div class="filter-tags">
+                                <input id="check-a" type="checkbox" name="check" />
+                                <label for="check-a">Remember me</label>
+                            </div>
+                        </form>
+                        <div class="lost_password">
+                            <a href="#">Lost Your Password?</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+}

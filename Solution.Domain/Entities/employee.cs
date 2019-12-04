@@ -5,7 +5,11 @@ namespace Solution.Data
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    public enum Etatcivil
+    {
+        Mariée, célibataire, Divorcée
 
+    }
     [Table("advyteam.employee")]
     public partial class employee
     {
@@ -13,7 +17,7 @@ namespace Solution.Data
         [StringLength(31)]
         public string Type_emp { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         [StringLength(255)]
@@ -25,14 +29,7 @@ namespace Solution.Data
         [StringLength(255)]
         public string email { get; set; }
 
-        [StringLength(255)]
-        public string etatcivil { get; set; }
-
-        [Column(TypeName = "bit")]
-        public bool? ferstlogin { get; set; }
-
-        [StringLength(16777215)]
-        public string image { get; set; }
+        public Etatcivil etatcivil { get; set; }
 
         [Column(TypeName = "bit")]
         public bool? isActif { get; set; }
@@ -46,8 +43,8 @@ namespace Solution.Data
         [StringLength(255)]
         public string prenom { get; set; }
 
-        [StringLength(255)]
-        public string role { get; set; }
+      
+        public int cin { get; set; }
 
         [StringLength(255)]
         public string sexe { get; set; }

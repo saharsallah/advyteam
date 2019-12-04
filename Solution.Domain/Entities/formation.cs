@@ -1,5 +1,6 @@
 namespace Solution.Data
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -23,7 +24,9 @@ namespace Solution.Data
 
         [StringLength(255)]
         public string type { get; set; }
-
+        [JsonIgnore]
         public int? participant_id { get; set; }
+
+        public participant participant { get; set; }
     }
 }

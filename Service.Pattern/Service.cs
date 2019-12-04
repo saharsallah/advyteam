@@ -71,13 +71,18 @@ namespace Service.Pattern
             //return _repository.Get(where);
             return utwk.GetRepositoryBase<TEntity>().Get(where);
         }
+        public virtual IEnumerable<TEntity> GetAll()
+        {
+            return utwk.GetRepositoryBase<TEntity>().GetAll();
+            //return _repository.GetById(id);
+            //  return utwk.getRepository<TEntity>().GetById(id);
+        }
 
-       
 
-       
-       
-      public void Commit()
-        {/*
+
+
+        public void Commit()
+        {
             try
             {
                 utwk.commit();
@@ -85,8 +90,8 @@ namespace Service.Pattern
             catch (Exception ex)
             {
 
-                throw;
-            } */
+                throw ex;
+            } 
         }
        
         
