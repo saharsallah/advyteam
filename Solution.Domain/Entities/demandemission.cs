@@ -6,7 +6,7 @@ namespace Solution.Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.demandemission")]
+    [Table("demandemission")]
     public partial class demandemission
     {
         public int id { get; set; }

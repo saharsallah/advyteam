@@ -1,7 +1,5 @@
-﻿
-using Solution.Domain.Entities;
+﻿using Solution.Domain.Entities;
 using Solution.Service;
-using Solution.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +10,13 @@ namespace Solution.Web.Controllers
 {
     public class CongeController : Controller
     {
-        ICongeService service;
+        ICongeService service = null;
+
 
         public CongeController()
         {
             service = new CongeService();
         }
-
-
         // GET: Conge
         public ActionResult Index()
         {
@@ -42,15 +39,6 @@ namespace Solution.Web.Controllers
         [HttpPost]
         public ActionResult Create(conge conge)
         {
-           /* conge conge = new conge
-            {
-                dateDebut = congeVM.dateDebut,
-                dateFin = congeVM.dateFin,
-                typeConge = congeVM.typeConge,
-                valider = congeVM.valider,
-                employe_id = congeVM.employe_id
-            };
-*/            
             service.Add(conge);
             service.Commit();
             return View();

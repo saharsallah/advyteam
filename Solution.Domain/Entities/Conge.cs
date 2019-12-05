@@ -6,10 +6,11 @@ namespace Solution.Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.conge")]
+    [Table("conge")]
     public partial class conge
     {
         //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column(TypeName = "int")]
         public int id { get; set; }
 
         [Column(TypeName = "date")]

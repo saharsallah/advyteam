@@ -7,7 +7,7 @@ namespace Solution.Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.tache")]
+    [Table("tache")]
     public partial class tache
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

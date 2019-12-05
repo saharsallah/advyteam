@@ -6,7 +6,7 @@ namespace Solution.Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.commentairepub")]
+    [Table("commentairepub")]
     public partial class commentairepub
     {
         public long id { get; set; }

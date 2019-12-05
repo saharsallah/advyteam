@@ -10,6 +10,7 @@ namespace Service.Pattern
     public interface IService<T>:IDisposable
     where T : class
     {
+
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);

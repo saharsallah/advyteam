@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Solution.Data.conge>
+﻿@model IEnumerable<Solution.Domain.Entities.conge>
 
 @{
     ViewBag.Title = "Index";
@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.employee.type_emp)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.dateDebut)
         </th>
         <th>
@@ -23,14 +26,14 @@
         <th>
             @Html.DisplayNameFor(model => model.valider)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.employe_id)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee.type_emp)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.dateDebut)
         </td>
@@ -42,9 +45,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.valider)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.employe_id)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

@@ -51,9 +51,9 @@ namespace Solution.Web.Controllers
             {
                 description = p.description,
                 titre = p.titre,
-                createdBy = 2,
-                dateDebut = p.dateDebut,
-                deadline = p.deadline
+                //createdBy = 2,
+                //dateDebut = p.dateDebut,
+                //deadline = p.deadline
             }
             );
 

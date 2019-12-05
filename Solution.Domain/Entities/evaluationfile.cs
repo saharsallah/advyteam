@@ -6,7 +6,7 @@ namespace Solution.Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("advyteam.evaluationfile")]
+    [Table("evaluationfile")]
     public partial class evaluationfile
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

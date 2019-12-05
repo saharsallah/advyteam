@@ -10,6 +10,8 @@ namespace Solution.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            // SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
+            SetSqlGenerator("MySql.Data.MySqlClient", new myMigrationSQLGenerator());
         }
 
         protected override void Seed(Solution.Data.Context context)

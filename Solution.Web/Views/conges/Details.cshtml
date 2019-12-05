@@ -1,0 +1,58 @@
+﻿@model Solution.Domain.Entities.conge
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>conge</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.employee.type_emp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee.type_emp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateDebut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateDebut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typeConge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeConge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valider)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
