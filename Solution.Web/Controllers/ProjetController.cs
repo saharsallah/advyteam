@@ -66,5 +66,15 @@ namespace Solution.Web.Controllers
             //Console.WriteLine(p);
             return RedirectToAction("Index");
         }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:8080/Piadvy-web/");
+            client.DeleteAsync("api/delete/" + id).ContinueWith((deleteTask) => deleteTask.Result.EnsureSuccessStatusCode());
+
+            return RedirectToAction("Index", "Index");
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Solution.Domain.Entities
         [Column(TypeName = "date")]
         public DateTime? dateFin { get; set; }
 
-        public int? typeConge { get; set; }
+        public string typeConge { get; set; }
 
         [Column(TypeName = "bit")]
         public bool? valider { get; set; }
