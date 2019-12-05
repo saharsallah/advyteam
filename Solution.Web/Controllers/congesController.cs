@@ -53,7 +53,7 @@ namespace Solution.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                conge.valider = false;
                 db.conges.Add(conge);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -221,6 +221,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CongeController.cs" />
     <Compile Include="Controllers\congesController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\GmailsendController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjetController.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\commentaire.cs" />
     <Compile Include="Models\CongeVM.cs" />
+    <Compile Include="Models\EmailClass.cs" />
     <Compile Include="Models\employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -443,6 +446,7 @@
     <Content Include="Views\conges\Details.cshtml" />
     <Content Include="Views\conges\Edit.cshtml" />
     <Content Include="Views\conges\Index.cshtml" />
+    <Content Include="Views\Gmailsend\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
